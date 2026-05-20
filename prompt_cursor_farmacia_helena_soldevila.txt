@@ -1,0 +1,77 @@
+Actua como un desarrollador senior front-end y experto en SEO local. Quiero crear una web sencilla, moderna y muy clara para una farmacia en Granada llamada "Farmacia Helena Soldevila".
+
+Objetivo:
+- Web inicial de posicionamiento local, no tienda online.
+- Que el usuario encuentre en segundos: direccion, horario, telefono, WhatsApp y boton de Google Maps.
+- Estilo visual tipo Apple: limpio, elegante, minimalista, mucho espacio en blanco, tipografia grande, botones claros, animaciones suaves.
+- SEO local orientado a busquedas como "farmacia en Granada", "farmacia Ribera del Violon", "farmacia cerca de Camino de Ronda", "Farmacia Helena Soldevila".
+
+Datos de la farmacia que debes usar como placeholders editables:
+- Nombre: Farmacia Helena Soldevila
+- Direccion: C. Ribera del Violon, 6, 18006 Granada
+- Telefono: 958 81 31 02
+- WhatsApp: usar el mismo numero en formato internacional editable, por ejemplo +34958813102, pero dejalo en una constante facil de cambiar.
+- Horario: Lunes a viernes 09:00-14:00 y 17:00-20:30; sabado 09:30-13:30; domingo cerrado. Pon comentario de que debe confirmarse.
+- Google Maps: crear boton "Como llegar" con enlace editable a Google Maps.
+
+Stack:
+- Usa Next.js con App Router, TypeScript y Tailwind CSS.
+- Crea una landing page en /app/page.tsx.
+- Usa componentes separados en /components: Header, Hero, InfoCards, About, Services, Gallery, Contact, FAQ, Footer.
+- El codigo debe ser limpio, responsive, accesible y facil de modificar.
+
+Diseño:
+- Fondo blanco o blanco roto (#FAFAF7).
+- Verde suave farmacia como color principal (#2F7D5B o similar).
+- Texto grafito (#1F2933).
+- Botones grandes, bordes redondeados, sombras muy suaves.
+- Header simple con logo textual "Farmacia Helena Soldevila" y enlaces ancla: Ubicacion, Horario, Sobre nosotros, Contacto.
+- En movil, mostrar botones fijos inferiores: Llamar, WhatsApp, Como llegar.
+- No usar sliders ni popups.
+- Incluir una galeria de fotos con placeholders: /public/images/fachada.webp, /interior.webp, /mostrador.webp, /equipo.webp.
+
+Contenido:
+Hero:
+H1: Farmacia Helena Soldevila en Granada
+Subtitulo: Tu farmacia cercana en C. Ribera del Violon, 6. Atencion farmaceutica profesional, trato humano y asesoramiento personalizado para cuidar de tu salud cada dia.
+CTAs: Llamar ahora, Escribir por WhatsApp, Como llegar
+
+Sobre nosotros:
+Hola, soy Helena, farmaceutica titular desde 2022. Desde siempre tuve claro que queria dedicarme a la oficina de farmacia, porque disfruto del trato cercano con las personas y de poder ayudar a cada paciente de forma directa a traves de mis conocimientos en salud.
+Ser titular de esta farmacia representa mi proyecto personal y profesional mas importante. Por eso trabajamos cada dia con ilusion, compromiso y cercania, buscando mejorar continuamente y ofrecer siempre la mejor atencion a quienes confian en nosotros.
+Aqui siempre encontraras a Laura, farmaceutica, y a mi, dispuestas a escucharte, asesorarte y ayudarte a cuidar de tu salud y bienestar.
+
+Servicios:
+- Consejo farmaceutico personalizado
+- Dermocosmetica y cuidado de la piel
+- Salud familiar y bienestar
+- Consulta de disponibilidad de productos
+- Encargo de productos de farmacia y parafarmacia
+- Atencion cercana en Granada
+
+Contacto:
+- Tarjeta con direccion, telefono, horario y botones.
+- Formulario con campos: nombre, email o telefono, mensaje.
+- Casilla obligatoria: "He leido y acepto la politica de privacidad".
+- Boton principal: "Enviar consulta".
+- Incluye tambien un boton secundario que abra WhatsApp con el texto del formulario pre-rellenado. Si no puedes hacer backend, implementa solo mailto y WhatsApp prefilled, dejando comentario donde conectar Formspree/EmailJS o API propia.
+
+SEO tecnico:
+- Añade metadata en Next.js: title, description, openGraph.
+- Añade JSON-LD en la pagina usando schema.org Pharmacy/LocalBusiness con name, address, telephone, openingHours, url, image y sameAs si hay Instagram.
+- Usa un unico H1.
+- Usa H2 claros por seccion.
+- Alt text descriptivo en imagenes: "Fachada de Farmacia Helena Soldevila en Granada", etc.
+- Crea /app/sitemap.ts y /app/robots.ts.
+- El rendimiento debe ser alto: imagenes optimizadas con next/image, lazy loading, sin librerias pesadas innecesarias.
+
+Legal/privacidad:
+- Crea paginas simples /aviso-legal, /politica-privacidad y /politica-cookies con texto placeholder para que lo revise un profesional.
+- No incluir venta online de medicamentos.
+- Añade aviso: "Este formulario no debe utilizarse para urgencias sanitarias".
+
+Entregable:
+- Genera todos los archivos necesarios.
+- Deja constantes arriba para telefono, WhatsApp, direccion, horario y Google Maps.
+- Incluye instrucciones breves para cambiar fotos y datos.
+- Cuida que la web se vea perfecta en movil.

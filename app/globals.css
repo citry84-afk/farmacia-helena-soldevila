@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface text-graphite antialiased;
+  }
+
+  ::selection {
+    @apply bg-brand/20 text-graphite;
+  }
+}
