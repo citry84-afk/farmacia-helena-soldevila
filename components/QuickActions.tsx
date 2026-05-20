@@ -37,7 +37,10 @@ export function QuickActions() {
         <ScrollReveal className="flex flex-col items-center text-center">
           <OpenStatus size="lg" />
           <p className="mt-4 max-w-xl text-sm text-graphite/55">
-            {PHARMACY.schedule.holidaysNote}
+            Festivos según calendario oficial de Granada.{" "}
+            <a href="#festivos-granada" className="font-medium text-brand hover:underline">
+              Ver calendario
+            </a>
           </p>
         </ScrollReveal>
 

@@ -1,0 +1,83 @@
+{
+  "year": 2027,
+  "syncedAt": "2026-05-20T20:06:53.618Z",
+  "sources": {
+    "nationalAndAutonomic": "https://date.nager.at/api/v3/PublicHolidays/{year}/ES + traslados BOJA Andalucía",
+    "local": "https://www.granada.org/inet/wordenanz.nsf/calendario?open=&tipo=f",
+    "localLabel": "Fiestas locales — Ayuntamiento de Granada"
+  },
+  "holidays": [
+    {
+      "date": "2027-01-01",
+      "name": "Año Nuevo",
+      "type": "national",
+      "source": "https://date.nager.at"
+    },
+    {
+      "date": "2027-01-06",
+      "name": "Día de Reyes / Epifanía del Señor",
+      "type": "national",
+      "source": "https://date.nager.at"
+    },
+    {
+      "date": "2027-02-28",
+      "name": "Día de Andalucía",
+      "type": "autonomic",
+      "source": "https://date.nager.at"
+    },
+    {
+      "date": "2027-03-25",
+      "name": "Jueves Santo",
+      "type": "autonomic",
+      "source": "https://date.nager.at"
+    },
+    {
+      "date": "2027-03-26",
+      "name": "Viernes Santo",
+      "type": "national",
+      "source": "https://date.nager.at"
+    },
+    {
+      "date": "2027-05-01",
+      "name": "Fiesta del trabajo",
+      "type": "national",
+      "source": "https://date.nager.at"
+    },
+    {
+      "date": "2027-08-15",
+      "name": "Asunción",
+      "type": "national",
+      "source": "https://date.nager.at"
+    },
+    {
+      "date": "2027-10-12",
+      "name": "Fiesta Nacional de España",
+      "type": "national",
+      "source": "https://date.nager.at"
+    },
+    {
+      "date": "2027-11-01",
+      "name": "Día de todos los Santos",
+      "type": "national",
+      "source": "https://date.nager.at"
+    },
+    {
+      "date": "2027-12-06",
+      "name": "Día de la Constitución",
+      "type": "national",
+      "source": "https://date.nager.at"
+    },
+    {
+      "date": "2027-12-08",
+      "name": "Inmaculada Concepción",
+      "type": "national",
+      "source": "https://date.nager.at"
+    },
+    {
+      "date": "2027-12-25",
+      "name": "Navidad",
+      "type": "national",
+      "source": "https://date.nager.at"
+    }
+  ]
+}

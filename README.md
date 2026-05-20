@@ -26,6 +26,19 @@ Edita **`lib/constants.ts`**:
 | `PHARMACY.googleReviewsUrl` | Enlace a reseñas de Google Business |
 | `PHARMACY.whatsappMessages` | Textos predefinidos de WhatsApp |
 
+## Calendario festivo oficial (Granada)
+
+Los festivos se sincronizan con:
+
+- **Nacionales y andaluces**: [Nager.Date](https://date.nager.at) + traslados al lunes (BOJA Andalucía)
+- **Locales ciudad de Granada**: [Ayuntamiento de Granada](https://www.granada.org/inet/wordenanz.nsf/calendario?open=&tipo=f) → `data/granada-local-holidays.json`
+
+```bash
+npm run sync:holidays   # Regenera data/holidays/{año}.json (ejecutar cada enero)
+```
+
+API: `GET /api/holidays?year=2026`
+
 ## Pendiente (cuando los tengas)
 
 - **Logo oficial** → sustituir `components/Logo.tsx` y `public/icon.svg`

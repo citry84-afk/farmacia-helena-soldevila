@@ -1,12 +1,12 @@
-/**
- * Estado abierto/cerrado según horario de PHARMACY (zona Europe/Madrid).
- * No contempla festivos: usar holidaysNote en la UI.
- */
+import type { HolidayEntry } from "@/lib/holidays";
+import { findHoliday, getMadridIsoDate } from "@/lib/holidays";
 
 export type OpenStatus = {
   isOpen: boolean;
   badge: string;
   detail: string;
+  isHoliday?: boolean;
+  holidayName?: string;
 };
 
 type Slot = { start: number; end: number };
@@ -17,6 +17,16 @@ const WEEKDAY: Slot[] = [
 ];
 
 const SATURDAY: Slot[] = [{ start: 9 * 60 + 30, end: 13 * 60 + 30 }];
+
+const DAY_NAMES = [
+  "domingo",
+  "lunes",
+  "martes",
+  "miércoles",
+  "jueves",
+  "viernes",
+  "sábado",
+];
 
 function getMadridDayAndMinutes(date = new Date()): { day: number; minutes: number } {
   const formatter = new Intl.DateTimeFormat("en-GB", {
@@ -44,6 +54,11 @@ function getMadridDayAndMinutes(date = new Date()): { day: number; minutes: numb
   return { day: dayMap[weekday] ?? 1, minutes: hour * 60 + minute };
 }
 
+function getMadridWeekdayFromIso(iso: string): number {
+  const noon = new Date(`${iso}T12:00:00`);
+  return getMadridDayAndMinutes(noon).day;
+}
+
 function formatTime(totalMinutes: number): string {
   const h = Math.floor(totalMinutes / 60);
   const m = totalMinutes % 60;
@@ -56,30 +71,53 @@ function slotsForDay(day: number): Slot[] {
   return WEEKDAY;
 }
 
-function nextOpening(day: number, minutes: number): { day: number; slot: Slot } | null {
-  for (let offset = 0; offset <= 7; offset++) {
-    const d = (day + offset) % 7;
-    const daySlots = slotsForDay(d);
-    for (const slot of daySlots) {
-      if (offset === 0 && minutes >= slot.end) continue;
-      if (offset === 0 && minutes < slot.start) return { day: d, slot };
-      if (offset > 0) return { day: d, slot };
-    }
-  }
-  return null;
+function addDaysToIso(iso: string, days: number): string {
+  const [y, m, d] = iso.split("-").map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d + days));
+  return dt.toISOString().slice(0, 10);
 }
 
-const DAY_NAMES = [
-  "domingo",
-  "lunes",
-  "martes",
-  "miércoles",
-  "jueves",
-  "viernes",
-  "sábado",
-];
+function holidayStatus(holiday: HolidayEntry): OpenStatus {
+  const typeLabel =
+    holiday.type === "local"
+      ? "festivo local"
+      : holiday.type === "autonomic"
+        ? "festivo en Andalucía"
+        : "festivo nacional";
+
+  return {
+    isOpen: false,
+    badge: "Cerrado — festivo",
+    detail: `${holiday.name} (${typeLabel})`,
+    isHoliday: true,
+    holidayName: holiday.name,
+  };
+}
+
+function nextOpenDetail(iso: string, day: number, minutes: number): string {
+  for (let offset = 0; offset <= 14; offset++) {
+    const checkIso = addDaysToIso(iso, offset);
+    if (findHoliday(checkIso)) continue;
+
+    const weekday = getMadridWeekdayFromIso(checkIso);
+    const slots = slotsForDay(weekday);
+
+    for (const slot of slots) {
+      if (offset === 0 && minutes >= slot.end) continue;
+      if (offset === 0) {
+        return `Abre hoy a las ${formatTime(slot.start)}`;
+      }
+      return `Abre el ${DAY_NAMES[weekday]} a las ${formatTime(slot.start)}`;
+    }
+  }
+  return "Consulta horario por teléfono o WhatsApp";
+}
 
 export function getPharmacyOpenStatus(now = new Date()): OpenStatus {
+  const iso = getMadridIsoDate(now);
+  const holiday = findHoliday(iso);
+  if (holiday) return holidayStatus(holiday);
+
   const { day, minutes } = getMadridDayAndMinutes(now);
   const slots = slotsForDay(day);
 
@@ -93,30 +131,9 @@ export function getPharmacyOpenStatus(now = new Date()): OpenStatus {
     }
   }
 
-  const upcoming = slots.find((s) => minutes < s.start);
-  if (upcoming) {
-    return {
-      isOpen: false,
-      badge: "Cerrado ahora",
-      detail: `Abre hoy a las ${formatTime(upcoming.start)}`,
-    };
-  }
-
-  const next = nextOpening(day, minutes);
-  if (!next) {
-    return {
-      isOpen: false,
-      badge: "Cerrado ahora",
-      detail: "Consulta horario por teléfono o WhatsApp",
-    };
-  }
-
-  const isToday = next.day === day;
-  const dayLabel = isToday ? "hoy" : `el ${DAY_NAMES[next.day]}`;
-
   return {
     isOpen: false,
     badge: "Cerrado ahora",
-    detail: `Abre ${dayLabel} a las ${formatTime(next.slot.start)}`,
+    detail: nextOpenDetail(iso, day, minutes),
   };
 }

@@ -1,0 +1,31 @@
+{
+  "$comment": "Festivos locales de la ciudad de Granada (Ayuntamiento). Actualizar cada año desde granada.org",
+  "officialCalendarUrl": "https://www.granada.org/inet/wordenanz.nsf/calendario?open=&tipo=f",
+  "localSourceLabel": "Fiestas locales — Ayuntamiento de Granada",
+  "years": {
+    "2025": [
+      {
+        "date": "2025-01-02",
+        "name": "Toma de Granada",
+        "source": "https://www.granada.org/inet/wordenanz.nsf/calendario?open=&tipo=f"
+      },
+      {
+        "date": "2025-06-19",
+        "name": "Corpus Christi (fiesta local)",
+        "source": "https://www.granada.org/inet/wordenanz.nsf/calendario?open=&tipo=f"
+      }
+    ],
+    "2026": [
+      {
+        "date": "2026-01-02",
+        "name": "Toma de Granada",
+        "source": "https://www.granada.org/inet/wordenanz.nsf/calendario?open=&tipo=f"
+      },
+      {
+        "date": "2026-06-04",
+        "name": "Corpus Christi (fiesta local)",
+        "source": "https://www.granada.org/inet/wordenanz.nsf/wwcalendar/DA5012FE4AD36EF0C1258CBA002F504B!open&windice=0"
+      }
+    ]
+  }
+}

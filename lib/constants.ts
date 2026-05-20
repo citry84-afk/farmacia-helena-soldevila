@@ -150,7 +150,8 @@ export const FAQ_ITEMS = [
   },
   {
     question: "¿Abrís en festivos?",
-    answer: PHARMACY.schedule.holidaysNote,
+    answer:
+      "Cerramos en festivos laborales oficiales de Granada (nacionales, autonómicos y locales). Consulta el calendario sincronizado con el Ayuntamiento en la sección «Festivos laborales en Granada».",
   },
   {
     question: "¿Gestionáis recetas electrónicas?",

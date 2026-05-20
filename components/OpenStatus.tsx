@@ -45,7 +45,11 @@ export function OpenStatus({ size = "md", className = "" }: Props) {
     >
       <span
         className={`h-2.5 w-2.5 shrink-0 rounded-full ${
-          status.isOpen ? "bg-brand animate-pulse" : "bg-graphite/35"
+          status.isOpen
+            ? "bg-brand animate-pulse"
+            : status.isHoliday
+              ? "bg-amber-500"
+              : "bg-graphite/35"
         }`}
         aria-hidden
       />
