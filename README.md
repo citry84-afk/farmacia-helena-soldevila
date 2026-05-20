@@ -53,7 +53,7 @@ Cuando pases el calendario:
 
 ## Pendiente (cuando los tengas)
 
-- **Logo oficial** → sustituir `components/Logo.tsx` y `public/icon.svg`
+- ~~Logo oficial~~ → `public/logo.webp` (actualizar si cambia el diseño)
 - **Foto de Helena** → `public/images/helena.webp`
 - **Calendario de guardias** → activar según sección anterior
 | `PHARMACY.address` | Dirección NAP (debe coincidir con Google Business) |

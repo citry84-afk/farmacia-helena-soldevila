@@ -54,8 +54,8 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: "/icon.svg",
-    apple: "/icon.svg",
+    icon: [{ url: "/logo.webp", type: "image/webp" }],
+    apple: "/logo.webp",
   },
   manifest: "/manifest.json",
   themeColor: "#2F7D5B",

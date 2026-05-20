@@ -8,6 +8,7 @@ export const SITE_URL = "https://www.farmaciasoldevila.com";
 export const PHARMACY = {
   name: "Farmacia Helena Soldevila",
   shortName: "Farmacia Helena Soldevila",
+  logoSrc: "/logo.webp",
   address: {
     street: "C. Ribera del Violón, 6",
     postalCode: "18006",

@@ -1,21 +1,19 @@
-export function Logo({ className = "h-8 w-8" }: { className?: string }) {
+import Image from "next/image";
+
+type Props = {
+  className?: string;
+  priority?: boolean;
+};
+
+export function Logo({ className = "h-10 w-auto sm:h-11", priority = false }: Props) {
   return (
-    <svg
+    <Image
+      src="/logo.webp"
+      alt="Farmacia Helena Soldevila — logo oficial"
+      width={448}
+      height={428}
       className={className}
-      viewBox="0 0 48 48"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <rect x="18" y="4" width="12" height="40" rx="2" fill="#2F7D5B" />
-      <rect x="4" y="18" width="40" height="12" rx="2" fill="#2F7D5B" />
-      <path
-        d="M10 24C16 20 22 28 28 24C32 22 36 24 38 24"
-        stroke="#FAFAF7"
-        strokeWidth="3"
-        strokeLinecap="round"
-        fill="none"
-      />
-    </svg>
+      priority={priority}
+    />
   );
 }

@@ -12,7 +12,7 @@ export function getPharmacyJsonLd() {
     telephone: [PHARMACY.phoneMobileTel, PHARMACY.phoneLandlineTel],
     email: PHARMACY.email,
     image: `${SITE_URL}${GALLERY_IMAGES[0].src}`,
-    logo: `${SITE_URL}/icon.svg`,
+    logo: `${SITE_URL}/logo.webp`,
     hasMap: PHARMACY.googleMapsUrl,
     address: {
       "@type": "PostalAddress",

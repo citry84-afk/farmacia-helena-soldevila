@@ -36,13 +36,11 @@ export function Header() {
       <div className="container-main flex items-center justify-between gap-4 py-4 md:py-5">
         <Link
           href="/"
-          className="flex items-center gap-2.5 text-graphite transition-opacity hover:opacity-80"
+          className="shrink-0 transition-opacity hover:opacity-85"
           onClick={closeMenu}
+          aria-label={PHARMACY.shortName}
         >
-          <Logo className="h-8 w-8 shrink-0 md:h-9 md:w-9" />
-          <span className="hidden text-sm font-semibold tracking-tight sm:inline md:text-[15px]">
-            {PHARMACY.shortName}
-          </span>
+          <Logo className="h-10 w-auto sm:h-11 md:h-12" priority />
         </Link>
 
         <nav

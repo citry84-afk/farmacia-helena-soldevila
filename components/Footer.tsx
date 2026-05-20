@@ -12,12 +12,7 @@ export function Footer() {
       <div className="container-main">
         <div className="grid gap-12 lg:grid-cols-3">
           <div>
-            <div className="flex items-center gap-3">
-              <Logo className="h-10 w-10" />
-              <span className="text-lg font-semibold tracking-tight text-graphite">
-                {PHARMACY.name}
-              </span>
-            </div>
+            <Logo className="h-14 w-auto sm:h-16" />
             <p className="mt-5 text-graphite/70 leading-relaxed">{PHARMACY.address.full}</p>
             <div className="mt-4">
               <PhoneNumbers />
