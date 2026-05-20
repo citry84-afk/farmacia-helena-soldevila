@@ -5,8 +5,10 @@ import { Header } from "@/components/Header";
 import { MobileActionBar } from "@/components/MobileActionBar";
 import { Footer } from "@/components/Footer";
 import { PHARMACY, SEO, SITE_URL } from "@/lib/constants";
+import { CookieBanner } from "@/components/CookieBanner";
+import { DesktopQuickActions } from "@/components/DesktopQuickActions";
 import { SkipLink } from "@/components/SkipLink";
-import { getBreadcrumbJsonLd, getPharmacyJsonLd } from "@/lib/schema";
+import { getBreadcrumbJsonLd, getFaqJsonLd, getPharmacyJsonLd } from "@/lib/schema";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -55,6 +57,8 @@ export const metadata: Metadata = {
     icon: "/icon.svg",
     apple: "/icon.svg",
   },
+  manifest: "/manifest.json",
+  themeColor: "#2F7D5B",
 };
 
 export default function RootLayout({
@@ -64,6 +68,7 @@ export default function RootLayout({
 }>) {
   const pharmacyLd = getPharmacyJsonLd();
   const breadcrumbLd = getBreadcrumbJsonLd();
+  const faqLd = getFaqJsonLd();
 
   return (
     <html lang="es" className={inter.variable}>
@@ -76,6 +81,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+        />
       </head>
       <body className="font-sans pb-20 md:pb-0">
         <SkipLink />
@@ -83,6 +92,8 @@ export default function RootLayout({
         <main id="contenido-principal">{children}</main>
         <Footer />
         <MobileActionBar />
+        <DesktopQuickActions />
+        <CookieBanner />
       </body>
     </html>
   );

@@ -113,6 +113,25 @@ function nextOpenDetail(iso: string, day: number, minutes: number): string {
   return "Consulta horario por teléfono o WhatsApp";
 }
 
+/** Horario de hoy en texto legible (o festivo) */
+export function getTodayScheduleLabel(now = new Date()): string {
+  const iso = getMadridIsoDate(now);
+  const holiday = findHoliday(iso);
+  if (holiday) return `Hoy festivo: ${holiday.name}. Cerrado.`;
+
+  const { day } = getMadridDayAndMinutes(now);
+  const slots = slotsForDay(day);
+
+  if (slots.length === 0) {
+    return "Hoy domingo: cerrado.";
+  }
+
+  const parts = slots.map(
+    (s) => `${formatTime(s.start)}–${formatTime(s.end)}`,
+  );
+  return `Hoy: ${parts.join(" y ")}`;
+}
+
 export function getPharmacyOpenStatus(now = new Date()): OpenStatus {
   const iso = getMadridIsoDate(now);
   const holiday = findHoliday(iso);

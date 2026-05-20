@@ -1,4 +1,4 @@
-import { GALLERY_IMAGES, PHARMACY, SITE_URL } from "./constants";
+import { FAQ_ITEMS, GALLERY_IMAGES, PHARMACY, SITE_URL } from "./constants";
 
 export function getPharmacyJsonLd() {
   return {
@@ -75,5 +75,20 @@ export function getBreadcrumbJsonLd() {
         item: `${SITE_URL}/#contenido-principal`,
       },
     ],
+  };
+}
+
+export function getFaqJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQ_ITEMS.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
   };
 }

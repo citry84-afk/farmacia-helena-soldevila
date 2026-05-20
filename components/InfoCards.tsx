@@ -1,7 +1,9 @@
 import { PHARMACY } from "@/lib/constants";
 import { buildWhatsAppUrl } from "@/lib/utils";
+import { MapLinks } from "./MapLinks";
 import { OpenStatus } from "./OpenStatus";
 import { PhoneNumbers } from "./PhoneNumbers";
+import { TodaySchedule } from "./TodaySchedule";
 import { ScrollReveal } from "./ScrollReveal";
 import { SectionHeading } from "./SectionHeading";
 
@@ -39,15 +41,7 @@ export function InfoCards() {
                   <li>{PHARMACY.access.parking}</li>
                 </ul>
               </div>
-              <a
-                href={PHARMACY.googleMapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-white px-6 py-3 text-base font-medium text-brand transition hover:bg-white/90"
-              >
-                Cómo llegar
-                <span aria-hidden>→</span>
-              </a>
+              <MapLinks variant="dark" className="mt-8" />
             </article>
           </ScrollReveal>
 
@@ -63,6 +57,7 @@ export function InfoCards() {
                   </p>
                   <OpenStatus size="sm" />
                 </div>
+                <TodaySchedule />
                 <ul className="mt-4 space-y-2 text-lg font-medium text-graphite">
                   <li>{PHARMACY.schedule.weekdays}</li>
                   <li>{PHARMACY.schedule.saturday}</li>

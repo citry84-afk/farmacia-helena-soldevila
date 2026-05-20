@@ -5,6 +5,7 @@ import { PHARMACY } from "@/lib/constants";
 import { buildTelUrl, buildWhatsAppUrl } from "@/lib/utils";
 import { Button } from "./ui/Button";
 import { PhoneNumbers } from "./PhoneNumbers";
+import { MapLinks } from "./MapLinks";
 import { SectionHeading } from "./SectionHeading";
 
 export function Contact() {
@@ -12,6 +13,7 @@ export function Contact() {
   const [contact, setContact] = useState("");
   const [message, setMessage] = useState("");
   const [privacy, setPrivacy] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
 
   const buildFormMessage = () => {
     const lines = [
@@ -25,14 +27,14 @@ export function Contact() {
 
   const handleMailto = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!privacy) return;
+    if (honeypot || !privacy) return;
     const subject = encodeURIComponent("Consulta web - Farmacia Helena Soldevila");
     const body = encodeURIComponent(buildFormMessage());
     window.location.href = `mailto:${PHARMACY.email}?subject=${subject}&body=${body}`;
   };
 
   const handleWhatsApp = () => {
-    if (!privacy) return;
+    if (honeypot || !privacy) return;
     window.open(buildWhatsAppUrl(buildFormMessage()), "_blank", "noopener,noreferrer");
   };
 
@@ -110,7 +112,7 @@ export function Contact() {
 
           <form
             onSubmit={handleMailto}
-            className="glass-panel p-8 md:p-10"
+            className="relative glass-panel p-8 md:p-10"
             noValidate
           >
             <p className="mb-6 rounded-2xl border border-amber-200/80 bg-amber-50/80 px-4 py-3 text-sm text-amber-950">
@@ -119,6 +121,18 @@ export function Contact() {
             </p>
 
             <div className="space-y-5">
+              <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden>
+                <label htmlFor="company-website">Empresa</label>
+                <input
+                  id="company-website"
+                  name="company-website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                />
+              </div>
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-graphite">
                   Nombre
@@ -199,7 +213,9 @@ export function Contact() {
           </form>
         </div>
 
-        <div className="mt-8 overflow-hidden rounded-5xl shadow-soft-lg">
+        <MapLinks variant="light" className="mt-8 justify-center" />
+
+        <div className="mt-6 overflow-hidden rounded-5xl shadow-soft-lg">
           <iframe
             title="Mapa de ubicación de Farmacia Helena Soldevila en Granada"
             src={PHARMACY.googleMapsEmbedUrl}
