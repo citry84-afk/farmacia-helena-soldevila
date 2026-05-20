@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "sync:holidays": "node scripts/sync-granada-holidays.mjs"
+    "sync:holidays": "node scripts/sync-granada-holidays.mjs",
+    "sync:guardias": "node scripts/sync-guardias.mjs"
   },
   "dependencies": {
     "next": "^15.1.0",

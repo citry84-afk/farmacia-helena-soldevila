@@ -73,6 +73,19 @@ export const PHARMACY = {
   ],
 } as const;
 
+/**
+ * Guardias de farmacia — preparado, sin publicar (enabled: false).
+ * Cuando tengas el calendario: data/guardias/README.md y lib/guardias/index.ts
+ */
+export const GUARDIAS = {
+  enabled: false,
+  /** Enlace al calendario oficial del colegio / PDF cuando lo tengas */
+  officialUrl: "" as string,
+  /** Texto breve bajo el título de la sección (editable) */
+  intro:
+    "Fuera del horario habitual, la farmacia de guardia atiende urgencias farmacéuticas. Confirma siempre por teléfono.",
+} as const;
+
 export const SEO = {
   title: "Farmacia Helena Soldevila en Granada | Ribera del Violón",
   description:

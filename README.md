@@ -39,10 +39,22 @@ npm run sync:holidays   # Regenera data/holidays/{año}.json (ejecutar cada ener
 
 API: `GET /api/holidays?year=2026`
 
+## Calendario de guardias (preparado, no visible)
+
+Estructura lista en `data/guardias/`, `lib/guardias/` y `components/Guardias.tsx`. **No está en la web** (`GUARDIAS.enabled: false`).
+
+Cuando pases el calendario:
+
+1. Añade JSON en `data/guardias/` (formato en `data/guardias/README.md`)
+2. Completa los TODO en `lib/guardias/index.ts`
+3. `GUARDIAS.enabled: true` en `lib/constants.ts`
+4. Descomenta `<Guardias />` en `app/page.tsx`
+
 ## Pendiente (cuando los tengas)
 
 - **Logo oficial** → sustituir `components/Logo.tsx` y `public/icon.svg`
 - **Foto de Helena** → `public/images/helena.webp`
+- **Calendario de guardias** → activar según sección anterior
 | `PHARMACY.address` | Dirección NAP (debe coincidir con Google Business) |
 | `PHARMACY.schedule` | Horario y nota de confirmación |
 | `PHARMACY.googleMapsUrl` | URL de «Cómo llegar» (enlace de Google Maps / Business) |
