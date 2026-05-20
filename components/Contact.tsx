@@ -43,10 +43,19 @@ export function Contact() {
       aria-labelledby="contact-heading"
     >
       <div className="container-main">
+        <div
+          className="mb-10 rounded-3xl border border-red-200/80 bg-red-50/90 px-6 py-4 text-center text-sm text-red-950 md:text-base"
+          role="note"
+        >
+          <strong>No es para urgencias.</strong> Si necesitas atención sanitaria urgente,
+          llama al <a href="tel:112" className="font-bold underline">112</a> o acude a
+          urgencias.
+        </div>
+
         <SectionHeading
           eyebrow="Contacto"
           title="¿En qué podemos ayudarte?"
-          description="Escríbenos o llámanos. Para urgencias sanitarias, llama al 112."
+          description="Escríbenos o llámanos. Te respondemos lo antes posible en horario de apertura."
         />
 
         <div className="mt-14 grid gap-6 lg:grid-cols-2 lg:gap-8">

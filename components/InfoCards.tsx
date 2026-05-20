@@ -1,5 +1,6 @@
 import { PHARMACY } from "@/lib/constants";
 import { buildWhatsAppUrl } from "@/lib/utils";
+import { OpenStatus } from "./OpenStatus";
 import { PhoneNumbers } from "./PhoneNumbers";
 import { ScrollReveal } from "./ScrollReveal";
 import { SectionHeading } from "./SectionHeading";
@@ -32,6 +33,11 @@ export function InfoCards() {
                 <p className="mt-4 max-w-md text-lg text-white/80">
                   Farmacia en Ribera del Violón, cerca de Camino de Ronda y el sur de Granada.
                 </p>
+                <ul className="mt-6 space-y-2 text-sm text-white/75">
+                  <li>{PHARMACY.access.ramp}</li>
+                  <li>{PHARMACY.access.transport}</li>
+                  <li>{PHARMACY.access.parking}</li>
+                </ul>
               </div>
               <a
                 href={PHARMACY.googleMapsUrl}
@@ -51,15 +57,19 @@ export function InfoCards() {
                 id="horario"
                 className="scroll-mt-32 glass-panel flex h-full flex-col p-8 md:p-9"
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-                  Horario
-                </p>
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+                    Horario
+                  </p>
+                  <OpenStatus size="sm" />
+                </div>
                 <ul className="mt-4 space-y-2 text-lg font-medium text-graphite">
                   <li>{PHARMACY.schedule.weekdays}</li>
                   <li>{PHARMACY.schedule.saturday}</li>
                   <li className="text-graphite/60">{PHARMACY.schedule.sunday}</li>
                 </ul>
                 <p className="mt-4 text-sm text-graphite/55">{PHARMACY.schedule.note}</p>
+                <p className="mt-2 text-sm text-graphite/55">{PHARMACY.schedule.holidaysNote}</p>
               </article>
             </ScrollReveal>
 
@@ -79,14 +89,24 @@ export function InfoCards() {
                     WhatsApp al móvil. También puedes llamar al fijo de la farmacia.
                   </p>
                 </div>
-                <a
-                  href={buildWhatsAppUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 text-sm font-semibold text-brand hover:underline"
-                >
-                  Abrir WhatsApp →
-                </a>
+                <div className="mt-6 flex flex-col gap-2">
+                  <a
+                    href={buildWhatsAppUrl(PHARMACY.whatsappMessages.product)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-semibold text-brand hover:underline"
+                  >
+                    Consultar producto por WhatsApp →
+                  </a>
+                  <a
+                    href={PHARMACY.googleReviewsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-medium text-graphite/65 hover:text-brand"
+                  >
+                    Ver opiniones en Google →
+                  </a>
+                </div>
               </article>
             </ScrollReveal>
           </div>

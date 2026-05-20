@@ -1,5 +1,6 @@
 import { Hero } from "@/components/Hero";
 import { InfoCards } from "@/components/InfoCards";
+import { QuickActions } from "@/components/QuickActions";
 import { About } from "@/components/About";
 import { Services } from "@/components/Services";
 import { Gallery } from "@/components/Gallery";
@@ -11,6 +12,7 @@ export default function HomePage() {
     <>
       <Hero />
       <InfoCards />
+      <QuickActions />
       <About />
       <Services />
       <Gallery />

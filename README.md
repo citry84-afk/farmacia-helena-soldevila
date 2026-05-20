@@ -23,6 +23,13 @@ Edita **`lib/constants.ts`**:
 | `PHARMACY.phoneLandline` / `phoneLandlineTel` | Fijo farmacia (958 81 31 03) |
 | `PHARMACY.whatsapp` | WhatsApp = móvil (`+34613513922`) |
 | `PHARMACY.portraitImage` | Foto de Helena (`public/images/helena.webp`) |
+| `PHARMACY.googleReviewsUrl` | Enlace a reseñas de Google Business |
+| `PHARMACY.whatsappMessages` | Textos predefinidos de WhatsApp |
+
+## Pendiente (cuando los tengas)
+
+- **Logo oficial** → sustituir `components/Logo.tsx` y `public/icon.svg`
+- **Foto de Helena** → `public/images/helena.webp`
 | `PHARMACY.address` | Dirección NAP (debe coincidir con Google Business) |
 | `PHARMACY.schedule` | Horario y nota de confirmación |
 | `PHARMACY.googleMapsUrl` | URL de «Cómo llegar» (enlace de Google Maps / Business) |

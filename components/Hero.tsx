@@ -2,6 +2,7 @@ import Image from "next/image";
 import { PHARMACY } from "@/lib/constants";
 import { buildTelUrl, buildWhatsAppUrl } from "@/lib/utils";
 import { Button } from "./ui/Button";
+import { OpenStatus } from "./OpenStatus";
 
 export function Hero() {
   return (
@@ -10,6 +11,9 @@ export function Hero() {
       aria-labelledby="hero-heading"
     >
       <div className="container-main flex flex-col items-center pb-8 text-center md:pb-12">
+        <div className="animate-fade-in mb-6">
+          <OpenStatus size="lg" />
+        </div>
         <p className="animate-fade-in mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-brand">
           Granada · Ribera del Violón
         </p>
@@ -30,25 +34,29 @@ export function Hero() {
           profesional, trato humano y asesoramiento personalizado.
         </p>
         <div
-          className="animate-fade-in-up mt-10 flex w-full max-w-lg flex-col gap-3 sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center"
+          className="animate-fade-in-up mt-10 flex w-full max-w-2xl flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center"
           style={{ animationDelay: "0.2s" }}
         >
-          <Button href={buildTelUrl()} size="lg">
-            Llamar ahora
+          <Button href={buildTelUrl("mobile")} size="lg">
+            Llamar móvil
           </Button>
           <Button
-            href={buildWhatsAppUrl(
-              "Hola, me gustaría información sobre Farmacia Helena Soldevila.",
-            )}
+            href={buildWhatsAppUrl(PHARMACY.whatsappMessages.product)}
             variant="secondary"
             size="lg"
           >
-            WhatsApp
+            ¿Tenéis este producto?
           </Button>
           <Button href={PHARMACY.googleMapsUrl} variant="ghost" size="lg">
             Cómo llegar
           </Button>
         </div>
+        <p className="animate-fade-in mt-6 text-sm text-graphite/50">
+          También en fijo:{" "}
+          <a href={buildTelUrl("landline")} className="font-medium text-brand hover:underline">
+            {PHARMACY.phoneLandline}
+          </a>
+        </p>
       </div>
 
       <div className="container-main pb-16 md:pb-24">

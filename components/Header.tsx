@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Logo } from "./Logo";
 import { NAV_LINKS, PHARMACY } from "@/lib/constants";
-import { PhoneNumbers } from "./PhoneNumbers";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);

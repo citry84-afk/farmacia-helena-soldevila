@@ -12,20 +12,18 @@ export function MobileActionBar() {
     >
       <div className="flex gap-2">
         <a
-          href={buildTelUrl()}
+          href={buildTelUrl("mobile")}
           className="flex flex-1 items-center justify-center rounded-full bg-brand py-3.5 text-sm font-semibold text-white shadow-soft"
         >
           Llamar
         </a>
         <a
-          href={buildWhatsAppUrl(
-            "Hola, me gustaría hacer una consulta a Farmacia Helena Soldevila.",
-          )}
+          href={buildWhatsAppUrl(PHARMACY.whatsappMessages.product)}
           target="_blank"
           rel="noopener noreferrer"
           className="flex flex-1 items-center justify-center rounded-full border border-graphite/15 bg-white py-3.5 text-sm font-semibold text-graphite"
         >
-          WhatsApp
+          Producto
         </a>
         <a
           href={PHARMACY.googleMapsUrl}

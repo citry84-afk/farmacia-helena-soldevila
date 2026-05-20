@@ -47,6 +47,24 @@ export const PHARMACY = {
     sunday: "Domingo: cerrado",
     summary:
       "Lunes a viernes 09:00–14:00 y 17:00–20:30 · Sábado 09:30–13:30 · Domingo cerrado",
+    holidaysNote:
+      "En festivos locales y nacionales el horario puede variar. Confirma por teléfono o WhatsApp antes de acudir.",
+  },
+  access: {
+    ramp: "Entrada a nivel de calle con rampa, accesible para sillas de ruedas y carritos.",
+    transport:
+      "Muy bien ubicada en Ribera del Violón, a pocos minutos de Camino de Ronda.",
+    parking: "Aparcamiento en zona reglada en las calles adyacentes.",
+  },
+  prescriptions:
+    "Gestionamos recetas electrónicas y te ayudamos con el seguimiento de tu medicación habitual.",
+  /** Sustituye por el enlace directo de reseñas de tu ficha de Google Business */
+  googleReviewsUrl:
+    "https://www.google.com/maps/search/?api=1&query=Farmacia+Helena+Soldevila+Calle+Ribera+del+Violon+6+Granada",
+  whatsappMessages: {
+    general: "Hola, me gustaría información sobre Farmacia Helena Soldevila.",
+    product:
+      "Hola, quería consultar si tenéis disponible el siguiente producto: ",
   },
   openingHoursSchema: [
     "Mo-Fr 09:00-14:00",
@@ -124,6 +142,23 @@ export const FAQ_ITEMS = [
   {
     question: "¿Qué teléfonos puedo usar para contactar?",
     answer: `Móvil ${PHARMACY.phoneMobile} (WhatsApp y llamadas) y fijo ${PHARMACY.phoneLandline}.`,
+  },
+  {
+    question: "¿Está abierta la farmacia ahora?",
+    answer:
+      "En la parte superior de la web verás si estamos abiertos o cerrados según el horario habitual. En festivos puede variar: confirma por teléfono o WhatsApp.",
+  },
+  {
+    question: "¿Abrís en festivos?",
+    answer: PHARMACY.schedule.holidaysNote,
+  },
+  {
+    question: "¿Gestionáis recetas electrónicas?",
+    answer: PHARMACY.prescriptions,
+  },
+  {
+    question: "¿Hay aparcamiento o acceso para sillas de ruedas?",
+    answer: `${PHARMACY.access.ramp} ${PHARMACY.access.parking}`,
   },
   {
     question: "¿Puedo consultar si tenéis un producto antes de ir?",
