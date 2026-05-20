@@ -19,8 +19,9 @@ Edita **`lib/constants.ts`**:
 
 | Constante | Qué cambiar |
 |-----------|-------------|
-| `PHARMACY.phone` / `phoneTel` | Teléfono visible y enlace `tel:` |
-| `PHARMACY.whatsapp` | Número WhatsApp internacional (`+34…`) |
+| `PHARMACY.phone` / `phoneTel` | Teléfono visible y enlace `tel:` (actual: 613 51 39 22) |
+| `PHARMACY.whatsapp` | Número WhatsApp internacional (`+34613513922`) |
+| `PHARMACY.portraitImage` | Foto de Helena (`public/images/helena.webp`) |
 | `PHARMACY.address` | Dirección NAP (debe coincidir con Google Business) |
 | `PHARMACY.schedule` | Horario y nota de confirmación |
 | `PHARMACY.googleMapsUrl` | URL de «Cómo llegar» (enlace de Google Maps / Business) |

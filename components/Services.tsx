@@ -1,38 +1,38 @@
 import { SERVICES } from "@/lib/constants";
+import { ScrollReveal } from "./ScrollReveal";
+import { SectionHeading } from "./SectionHeading";
 
 export function Services() {
   return (
     <section
       id="servicios"
-      className="scroll-mt-28 py-16 md:py-24"
+      className="scroll-mt-32 section-pad"
       aria-labelledby="services-heading"
     >
-      <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <div className="max-w-2xl">
-          <h2
-            id="services-heading"
-            className="text-3xl font-bold tracking-tight text-graphite md:text-4xl"
-          >
-            Servicios
-          </h2>
-          <p className="mt-4 text-lg text-graphite/70">
-            Atención farmacéutica cercana en Granada: consejo, dermocosmética y
-            bienestar para toda la familia.
-          </p>
-        </div>
-        <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.map((service) => (
-            <li
-              key={service.title}
-              className="rounded-3xl border border-graphite/5 bg-white p-7 shadow-soft transition hover:shadow-soft-lg"
-            >
-              <h3 className="text-lg font-semibold text-graphite">
-                {service.title}
-              </h3>
-              <p className="mt-3 text-graphite/70 leading-relaxed">
-                {service.description}
-              </p>
-            </li>
+      <div className="container-main">
+        <ScrollReveal>
+          <SectionHeading
+            eyebrow="Servicios"
+            title="Salud, belleza y consejo en un mismo lugar."
+            description="Atención farmacéutica cercana en Granada para toda la familia."
+          />
+        </ScrollReveal>
+
+        <ul className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {SERVICES.map((service, i) => (
+            <ScrollReveal key={service.title} delay={i * 60}>
+              <li className="group h-full rounded-4xl border border-graphite/5 bg-white p-8 shadow-soft transition duration-500 hover:-translate-y-1 hover:shadow-soft-lg">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-muted text-sm font-semibold text-brand">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-5 text-xl font-semibold tracking-tight text-graphite">
+                  {service.title}
+                </h3>
+                <p className="mt-3 leading-relaxed text-graphite/65">
+                  {service.description}
+                </p>
+              </li>
+            </ScrollReveal>
           ))}
         </ul>
       </div>

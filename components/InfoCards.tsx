@@ -1,96 +1,97 @@
 import { PHARMACY } from "@/lib/constants";
-import { buildTelUrl } from "@/lib/utils";
-
-const cards = [
-  {
-    id: "ubicacion",
-    title: "Dónde estamos",
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-    ),
-    content: (
-      <>
-        <p className="text-lg font-medium text-graphite">{PHARMACY.address.full}</p>
-        <p className="mt-2 text-graphite/70">
-          Farmacia en Ribera del Violón, cerca de Camino de Ronda y zona sur de Granada.
-        </p>
-        <a
-          href={PHARMACY.googleMapsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 inline-flex items-center gap-1 text-brand font-semibold hover:underline"
-        >
-          Abrir en Google Maps →
-        </a>
-      </>
-    ),
-  },
-  {
-    id: "horario",
-    title: "Horario",
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-    content: (
-      <>
-        <ul className="space-y-2 text-lg text-graphite">
-          <li>{PHARMACY.schedule.weekdays}</li>
-          <li>{PHARMACY.schedule.saturday}</li>
-          <li>{PHARMACY.schedule.sunday}</li>
-        </ul>
-        <p className="mt-4 text-sm text-graphite/60 italic">
-          {PHARMACY.schedule.note}
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "contacto-rapido",
-    title: "Contacto",
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-      </svg>
-    ),
-    content: (
-      <>
-        <a
-          href={buildTelUrl()}
-          className="text-2xl font-semibold text-brand hover:underline"
-        >
-          {PHARMACY.phone}
-        </a>
-        <p className="mt-2 text-graphite/70">
-          Llámanos o escríbenos por WhatsApp para consultar disponibilidad de productos.
-        </p>
-      </>
-    ),
-  },
-] as const;
+import { buildTelUrl, buildWhatsAppUrl } from "@/lib/utils";
+import { ScrollReveal } from "./ScrollReveal";
+import { SectionHeading } from "./SectionHeading";
 
 export function InfoCards() {
   return (
-    <section className="py-16 md:py-24" aria-label="Información esencial">
-      <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <div className="grid gap-6 md:grid-cols-3">
-          {cards.map((card) => (
+    <section className="section-pad" aria-label="Información esencial">
+      <div className="container-main">
+        <ScrollReveal>
+          <SectionHeading
+            eyebrow="Lo esencial"
+            title="Todo lo que necesitas, al instante."
+            description="Dirección, horario y contacto directo. Sin buscar."
+          />
+        </ScrollReveal>
+
+        <div className="mt-14 grid gap-4 md:grid-cols-12 md:gap-5">
+          <ScrollReveal className="md:col-span-7" delay={80}>
             <article
-              key={card.id}
-              id={card.id}
-              className="scroll-mt-28 rounded-3xl border border-graphite/5 bg-white p-8 shadow-soft transition hover:shadow-soft-lg"
+              id="ubicacion"
+              className="scroll-mt-32 flex h-full flex-col justify-between rounded-5xl bg-brand p-8 text-white md:p-10 lg:p-12"
             >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/10 text-brand">
-                {card.icon}
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
+                  Ubicación
+                </p>
+                <h2 className="mt-4 text-2xl font-semibold tracking-tight md:text-3xl">
+                  {PHARMACY.address.full}
+                </h2>
+                <p className="mt-4 max-w-md text-lg text-white/80">
+                  Farmacia en Ribera del Violón, cerca de Camino de Ronda y el sur de Granada.
+                </p>
               </div>
-              <h2 className="text-xl font-bold text-graphite">{card.title}</h2>
-              <div className="mt-4">{card.content}</div>
+              <a
+                href={PHARMACY.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-white px-6 py-3 text-base font-medium text-brand transition hover:bg-white/90"
+              >
+                Cómo llegar
+                <span aria-hidden>→</span>
+              </a>
             </article>
-          ))}
+          </ScrollReveal>
+
+          <div className="grid gap-4 md:col-span-5 md:grid-rows-2">
+            <ScrollReveal delay={120}>
+              <article
+                id="horario"
+                className="scroll-mt-32 glass-panel flex h-full flex-col p-8 md:p-9"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+                  Horario
+                </p>
+                <ul className="mt-4 space-y-2 text-lg font-medium text-graphite">
+                  <li>{PHARMACY.schedule.weekdays}</li>
+                  <li>{PHARMACY.schedule.saturday}</li>
+                  <li className="text-graphite/60">{PHARMACY.schedule.sunday}</li>
+                </ul>
+                <p className="mt-4 text-sm text-graphite/55">{PHARMACY.schedule.note}</p>
+              </article>
+            </ScrollReveal>
+
+            <ScrollReveal delay={160}>
+              <article
+                id="contacto-rapido"
+                className="scroll-mt-32 glass-panel flex h-full flex-col justify-between p-8 md:p-9"
+              >
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+                    Contacto
+                  </p>
+                  <a
+                    href={buildTelUrl()}
+                    className="mt-4 block text-3xl font-semibold tracking-tight text-graphite transition hover:text-brand"
+                  >
+                    {PHARMACY.phone}
+                  </a>
+                  <p className="mt-2 text-graphite/65">
+                    Llama o escribe por WhatsApp antes de venir.
+                  </p>
+                </div>
+                <a
+                  href={buildWhatsAppUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 text-sm font-semibold text-brand hover:underline"
+                >
+                  Abrir WhatsApp →
+                </a>
+              </article>
+            </ScrollReveal>
+          </div>
         </div>
       </div>
     </section>

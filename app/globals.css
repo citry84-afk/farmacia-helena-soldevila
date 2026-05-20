@@ -9,9 +9,51 @@
 
   body {
     @apply bg-surface text-graphite antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
   }
 
   ::selection {
-    @apply bg-brand/20 text-graphite;
+    @apply bg-brand/25 text-graphite;
+  }
+}
+
+@layer components {
+  .section-pad {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .container-main {
+    @apply mx-auto max-w-6xl px-5 md:px-8 lg:max-w-7xl;
+  }
+
+  .glass-panel {
+    @apply rounded-[1.75rem] border border-white/60 bg-white/70 shadow-soft backdrop-blur-xl;
+  }
+
+  .hero-glow {
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(47, 125, 91, 0.12), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(47, 125, 91, 0.06), transparent);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
   }
 }

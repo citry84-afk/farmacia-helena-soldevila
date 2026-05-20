@@ -16,10 +16,14 @@ export const PHARMACY = {
     country: "ES",
     full: "C. Ribera del Violón, 6, 18006 Granada",
   },
-  phone: "958 81 31 02",
-  phoneTel: "+34958813102",
+  phone: "613 51 39 22",
+  phoneTel: "+34613513922",
   /** Número WhatsApp en formato internacional (editable) */
-  whatsapp: "+34958813102",
+  whatsapp: "+34613513922",
+  /** Foto de Helena — sustituye por /public/images/helena.webp cuando la tengas */
+  portraitImage: "/images/helena.webp",
+  portraitAlt:
+    "Helena Soldevila, farmacéutica titular de Farmacia Helena Soldevila en Granada",
   email: "info@farmaciasoldevila.com",
   instagram: "https://www.instagram.com/farmacia.helenasoldevila/",
   /** Enlace a Google Maps — sustituye por tu URL de Google Business si la tienes */

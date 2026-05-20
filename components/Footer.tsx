@@ -1,57 +1,64 @@
 import Link from "next/link";
 import { PHARMACY } from "@/lib/constants";
-import { buildTelUrl } from "@/lib/utils";
+import { buildTelUrl, buildWhatsAppUrl } from "@/lib/utils";
 import { Logo } from "./Logo";
 
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-graphite/10 bg-white pb-28 pt-16 md:pb-16">
-      <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <div className="flex flex-col gap-10 md:flex-row md:justify-between">
-          <div className="max-w-sm">
+    <footer className="border-t border-graphite/8 bg-white pb-28 pt-20 md:pb-16">
+      <div className="container-main">
+        <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
+          <div className="max-w-md">
             <div className="flex items-center gap-3">
               <Logo className="h-10 w-10" />
-              <span className="font-semibold text-graphite">{PHARMACY.name}</span>
+              <span className="text-lg font-semibold tracking-tight text-graphite">
+                {PHARMACY.name}
+              </span>
             </div>
-            <p className="mt-4 text-graphite/70 leading-relaxed">
+            <p className="mt-5 text-lg leading-relaxed text-graphite/70">
               {PHARMACY.address.full}
-              <br />
-              <a href={buildTelUrl()} className="text-brand hover:underline">
+            </p>
+            <p className="mt-3">
+              <a
+                href={buildTelUrl()}
+                className="text-xl font-semibold text-brand hover:underline"
+              >
                 {PHARMACY.phone}
               </a>
             </p>
-            <p className="mt-4 text-sm text-graphite/60">
-              No vendemos medicamentos online. Este sitio es informativo para
-              posicionamiento local y contacto con la farmacia física.
-            </p>
+            <a
+              href={buildWhatsAppUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-block text-sm font-medium text-brand hover:underline"
+            >
+              WhatsApp
+            </a>
           </div>
-          <nav aria-label="Enlaces legales" className="flex flex-col gap-2">
-            <span className="text-sm font-semibold uppercase tracking-wider text-graphite/50">
-              Legal
-            </span>
-            <Link href="/aviso-legal" className="text-graphite/80 hover:text-brand">
+          <nav aria-label="Enlaces legales" className="flex flex-wrap gap-x-10 gap-y-3 text-sm">
+            <Link href="/aviso-legal" className="text-graphite/70 hover:text-brand">
               Aviso legal
             </Link>
-            <Link href="/politica-privacidad" className="text-graphite/80 hover:text-brand">
-              Política de privacidad
+            <Link href="/politica-privacidad" className="text-graphite/70 hover:text-brand">
+              Privacidad
             </Link>
-            <Link href="/politica-cookies" className="text-graphite/80 hover:text-brand">
-              Política de cookies
+            <Link href="/politica-cookies" className="text-graphite/70 hover:text-brand">
+              Cookies
             </Link>
             <a
               href={PHARMACY.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-graphite/80 hover:text-brand"
+              className="text-graphite/70 hover:text-brand"
             >
               Instagram
             </a>
           </nav>
         </div>
-        <p className="mt-12 border-t border-graphite/10 pt-8 text-center text-sm text-graphite/50">
-          © {year} {PHARMACY.name}. Todos los derechos reservados.
+        <p className="mt-14 border-t border-graphite/8 pt-8 text-center text-sm text-graphite/45">
+          © {year} {PHARMACY.name}. Sin venta online de medicamentos.
         </p>
       </div>
     </footer>

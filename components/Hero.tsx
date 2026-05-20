@@ -6,49 +6,62 @@ import { Button } from "./ui/Button";
 export function Hero() {
   return (
     <section
-      className="relative overflow-hidden pt-28 md:pt-36"
+      className="hero-glow relative min-h-[92vh] overflow-hidden pt-24 md:min-h-screen md:pt-28"
       aria-labelledby="hero-heading"
     >
-      <div className="mx-auto grid max-w-6xl gap-12 px-5 pb-16 md:grid-cols-2 md:items-center md:gap-16 md:px-8 md:pb-24">
-        <div className="animate-fade-in-up">
-          <p className="mb-4 text-sm font-medium uppercase tracking-wider text-brand">
-            Farmacia en Granada · Ribera del Violón
-          </p>
-          <h1
-            id="hero-heading"
-            className="text-4xl font-bold leading-[1.1] tracking-tight text-graphite md:text-5xl lg:text-[3.25rem]"
+      <div className="container-main flex flex-col items-center pb-8 text-center md:pb-12">
+        <p className="animate-fade-in mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-brand">
+          Granada · Ribera del Violón
+        </p>
+        <h1
+          id="hero-heading"
+          className="animate-fade-in-up max-w-4xl text-display-sm font-semibold tracking-tight text-graphite sm:text-display md:text-display-lg"
+        >
+          Farmacia Helena Soldevila
+        </h1>
+        <p className="animate-fade-in-up mt-3 text-xl font-medium text-brand md:text-2xl">
+          en Granada
+        </p>
+        <p
+          className="animate-fade-in-up mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-graphite/70 md:mt-10 md:text-xl md:leading-relaxed"
+          style={{ animationDelay: "0.1s" }}
+        >
+          Tu farmacia cercana en {PHARMACY.address.street}. Atención farmacéutica
+          profesional, trato humano y asesoramiento personalizado.
+        </p>
+        <div
+          className="animate-fade-in-up mt-10 flex w-full max-w-lg flex-col gap-3 sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center"
+          style={{ animationDelay: "0.2s" }}
+        >
+          <Button href={buildTelUrl()} size="lg">
+            Llamar ahora
+          </Button>
+          <Button
+            href={buildWhatsAppUrl(
+              "Hola, me gustaría información sobre Farmacia Helena Soldevila.",
+            )}
+            variant="secondary"
+            size="lg"
           >
-            Farmacia Helena Soldevila en Granada
-          </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-graphite/75 md:text-xl">
-            Tu farmacia cercana en {PHARMACY.address.street}. Atención
-            farmacéutica profesional, trato humano y asesoramiento personalizado
-            para cuidar de tu salud cada día.
-          </p>
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Button href={buildTelUrl()}>Llamar ahora</Button>
-            <Button
-              href={buildWhatsAppUrl(
-                "Hola, me gustaría información sobre Farmacia Helena Soldevila.",
-              )}
-              variant="secondary"
-            >
-              Escribir por WhatsApp
-            </Button>
-            <Button href={PHARMACY.googleMapsUrl} variant="ghost">
-              Cómo llegar
-            </Button>
-          </div>
+            WhatsApp
+          </Button>
+          <Button href={PHARMACY.googleMapsUrl} variant="ghost" size="lg">
+            Cómo llegar
+          </Button>
         </div>
-        <div className="relative aspect-[4/3] animate-fade-in overflow-hidden rounded-3xl shadow-soft-lg md:aspect-square">
+      </div>
+
+      <div className="container-main pb-16 md:pb-24">
+        <div className="animate-fade-in relative mx-auto aspect-[16/10] max-w-5xl overflow-hidden rounded-5xl shadow-soft-lg md:aspect-[21/9]">
           <Image
             src="/images/fachada.webp"
             alt="Fachada de Farmacia Helena Soldevila en Granada, C. Ribera del Violón"
             fill
             priority
             className="object-cover"
-            sizes="(max-width: 768px) 100vw, 50vw"
+            sizes="(max-width: 768px) 100vw, 90vw"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-graphite/25 via-transparent to-transparent" />
         </div>
       </div>
     </section>

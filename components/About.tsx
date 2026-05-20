@@ -1,48 +1,58 @@
 import Image from "next/image";
+import { PHARMACY } from "@/lib/constants";
+import { ScrollReveal } from "./ScrollReveal";
+import { SectionHeading } from "./SectionHeading";
 
 export function About() {
   return (
     <section
       id="sobre-nosotros"
-      className="scroll-mt-28 bg-white py-16 md:py-24"
+      className="scroll-mt-32 section-pad bg-white"
       aria-labelledby="about-heading"
     >
-      <div className="mx-auto grid max-w-6xl gap-12 px-5 md:grid-cols-2 md:items-center md:gap-16 md:px-8">
-        <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-soft-lg">
-          <Image
-            src="/images/interior.webp"
-            alt="Interior de Farmacia Helena Soldevila en Granada, ambiente luminoso y moderno"
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 50vw"
-            loading="lazy"
-          />
-        </div>
-        <div>
-          <h2
-            id="about-heading"
-            className="text-3xl font-bold tracking-tight text-graphite md:text-4xl"
-          >
-            Sobre nosotros
-          </h2>
-          <div className="mt-6 space-y-5 text-lg leading-relaxed text-graphite/80">
-            <p>
-              Hola, soy Helena, farmacéutica titular desde 2022. Desde siempre tuve
-              claro que quería dedicarme a la oficina de farmacia, porque disfruto del
-              trato cercano con las personas y de poder ayudar a cada paciente de forma
-              directa a través de mis conocimientos en salud.
-            </p>
-            <p>
-              Ser titular de esta farmacia representa mi proyecto personal y
-              profesional más importante. Por eso trabajamos cada día con ilusión,
-              compromiso y cercanía, buscando mejorar continuamente y ofrecer siempre la
-              mejor atención a quienes confían en nosotros.
-            </p>
-            <p>
-              Aquí siempre encontrarás a Laura, farmacéutica, y a mí, dispuestas a
-              escucharte, asesorarte y ayudarte a cuidar de tu salud y bienestar.
-            </p>
-          </div>
+      <div className="container-main">
+        <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+          <ScrollReveal>
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-md lg:max-w-none">
+              <div className="absolute -inset-4 rounded-[2.5rem] bg-brand/10 blur-2xl" aria-hidden />
+              <div className="relative overflow-hidden rounded-5xl shadow-soft-lg">
+                <Image
+                  src={PHARMACY.portraitImage}
+                  alt={PHARMACY.portraitAlt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 90vw, 45vw"
+                  loading="lazy"
+                />
+              </div>
+              <div className="absolute -bottom-4 left-4 right-4 rounded-3xl border border-white/50 bg-white/90 px-6 py-4 shadow-soft-lg backdrop-blur-xl md:left-6 md:right-6">
+                <p className="text-lg font-semibold text-graphite">Helena Soldevila</p>
+                <p className="text-sm text-graphite/65">Farmacéutica titular · desde 2022</p>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={100}>
+            <SectionHeading
+              eyebrow="Sobre nosotros"
+              title="Cuidamos de ti con cercanía y profesionalidad."
+            />
+            <div className="mt-8 space-y-6 text-lg leading-relaxed text-graphite/75 md:text-xl md:leading-relaxed">
+              <p>
+                Hola, soy Helena, farmacéutica titular desde 2022. Desde siempre tuve claro que
+                quería dedicarme a la oficina de farmacia, porque disfruto del trato cercano con
+                las personas y de poder ayudar a cada paciente de forma directa.
+              </p>
+              <p>
+                Ser titular de esta farmacia representa mi proyecto personal y profesional más
+                importante. Trabajamos cada día con ilusión, compromiso y cercanía.
+              </p>
+              <p>
+                Aquí siempre encontrarás a Laura, farmacéutica, y a mí, dispuestas a escucharte,
+                asesorarte y ayudarte a cuidar de tu salud y bienestar.
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

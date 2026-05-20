@@ -4,6 +4,7 @@ import { useState } from "react";
 import { PHARMACY } from "@/lib/constants";
 import { buildTelUrl, buildWhatsAppUrl } from "@/lib/utils";
 import { Button } from "./ui/Button";
+import { SectionHeading } from "./SectionHeading";
 
 export function Contact() {
   const [name, setName] = useState("");
@@ -37,66 +38,73 @@ export function Contact() {
   return (
     <section
       id="contacto"
-      className="scroll-mt-28 py-16 md:py-24"
+      className="scroll-mt-32 section-pad"
       aria-labelledby="contact-heading"
     >
-      <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <h2
-          id="contact-heading"
-          className="text-3xl font-bold tracking-tight text-graphite md:text-4xl"
-        >
-          Contacto
-        </h2>
-        <p className="mt-4 max-w-2xl text-lg text-graphite/70">
-          Escríbenos o llámanos. Para urgencias sanitarias, acude a urgencias o llama al 112.
-        </p>
+      <div className="container-main">
+        <SectionHeading
+          eyebrow="Contacto"
+          title="¿En qué podemos ayudarte?"
+          description="Escríbenos o llámanos. Para urgencias sanitarias, llama al 112."
+        />
 
-        <div className="mt-12 grid gap-10 lg:grid-cols-2">
-          <aside className="rounded-3xl border border-graphite/5 bg-white p-8 shadow-soft">
-            <h3 className="text-xl font-semibold text-graphite">Datos de contacto</h3>
-            <dl className="mt-6 space-y-4 text-graphite/80">
-              <div>
-                <dt className="text-sm font-medium text-graphite/60">Dirección</dt>
-                <dd className="mt-1 text-lg">{PHARMACY.address.full}</dd>
-              </div>
-              <div>
-                <dt className="text-sm font-medium text-graphite/60">Teléfono</dt>
-                <dd className="mt-1">
-                  <a href={buildTelUrl()} className="text-lg font-semibold text-brand hover:underline">
-                    {PHARMACY.phone}
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="text-sm font-medium text-graphite/60">Horario</dt>
-                <dd className="mt-1">{PHARMACY.schedule.summary}</dd>
-                <dd className="mt-1 text-sm italic text-graphite/60">
-                  {PHARMACY.schedule.note}
-                </dd>
-              </div>
-            </dl>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href={buildTelUrl()} className="flex-1 justify-center">
+        <div className="mt-14 grid gap-6 lg:grid-cols-2 lg:gap-8">
+          <aside className="glass-panel flex flex-col justify-between p-8 md:p-10">
+            <div>
+              <dl className="space-y-6">
+                <div>
+                  <dt className="text-xs font-semibold uppercase tracking-[0.18em] text-brand">
+                    Dirección
+                  </dt>
+                  <dd className="mt-2 text-xl font-medium text-graphite">
+                    {PHARMACY.address.full}
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-xs font-semibold uppercase tracking-[0.18em] text-brand">
+                    Teléfono y WhatsApp
+                  </dt>
+                  <dd className="mt-2">
+                    <a
+                      href={buildTelUrl()}
+                      className="text-3xl font-semibold tracking-tight text-graphite hover:text-brand"
+                    >
+                      {PHARMACY.phone}
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-xs font-semibold uppercase tracking-[0.18em] text-brand">
+                    Horario
+                  </dt>
+                  <dd className="mt-2 text-lg text-graphite/75">{PHARMACY.schedule.summary}</dd>
+                  <dd className="mt-1 text-sm text-graphite/55">{PHARMACY.schedule.note}</dd>
+                </div>
+              </dl>
+            </div>
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+              <Button href={buildTelUrl()} size="lg" className="flex-1 justify-center">
                 Llamar
               </Button>
               <Button
-                href={PHARMACY.googleMapsUrl}
+                href={buildWhatsAppUrl()}
                 variant="secondary"
+                size="lg"
                 className="flex-1 justify-center"
               >
-                Cómo llegar
+                WhatsApp
               </Button>
             </div>
           </aside>
 
           <form
             onSubmit={handleMailto}
-            className="rounded-3xl border border-graphite/5 bg-white p-8 shadow-soft"
+            className="glass-panel p-8 md:p-10"
             noValidate
           >
-            <p className="mb-6 rounded-2xl bg-amber-50 px-4 py-3 text-sm text-amber-900">
-              Este formulario no debe utilizarse para urgencias sanitarias. En caso de
-              emergencia, llama al 112 o acude a urgencias.
+            <p className="mb-6 rounded-2xl border border-amber-200/80 bg-amber-50/80 px-4 py-3 text-sm text-amber-950">
+              Este formulario no debe utilizarse para urgencias sanitarias. En emergencia,
+              llama al 112.
             </p>
 
             <div className="space-y-5">
@@ -111,7 +119,7 @@ export function Contact() {
                   autoComplete="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="mt-2 w-full rounded-2xl border border-graphite/15 bg-surface px-4 py-3 text-graphite outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
+                  className="mt-2 w-full rounded-2xl border-0 bg-surface px-4 py-3.5 text-graphite ring-1 ring-graphite/10 transition focus:ring-2 focus:ring-brand"
                   required
                 />
               </div>
@@ -126,7 +134,7 @@ export function Contact() {
                   autoComplete="email tel"
                   value={contact}
                   onChange={(e) => setContact(e.target.value)}
-                  className="mt-2 w-full rounded-2xl border border-graphite/15 bg-surface px-4 py-3 text-graphite outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
+                  className="mt-2 w-full rounded-2xl border-0 bg-surface px-4 py-3.5 text-graphite ring-1 ring-graphite/10 transition focus:ring-2 focus:ring-brand"
                   required
                 />
               </div>
@@ -140,7 +148,7 @@ export function Contact() {
                   rows={4}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="mt-2 w-full resize-y rounded-2xl border border-graphite/15 bg-surface px-4 py-3 text-graphite outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
+                  className="mt-2 w-full resize-y rounded-2xl border-0 bg-surface px-4 py-3.5 text-graphite ring-1 ring-graphite/10 transition focus:ring-2 focus:ring-brand"
                   required
                 />
               </div>
@@ -152,9 +160,9 @@ export function Contact() {
                   className="mt-1 h-4 w-4 rounded border-graphite/30 text-brand focus:ring-brand"
                   required
                 />
-                <span className="text-sm text-graphite/80">
+                <span className="text-sm text-graphite/75">
                   He leído y acepto la{" "}
-                  <a href="/politica-privacidad" className="text-brand underline hover:no-underline">
+                  <a href="/politica-privacidad" className="text-brand hover:underline">
                     política de privacidad
                   </a>
                   .
@@ -163,42 +171,28 @@ export function Contact() {
             </div>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button
-                type="submit"
-                className="flex-1 justify-center"
-                disabled={!privacy}
-              >
+              <Button type="submit" size="lg" className="flex-1 justify-center" disabled={!privacy}>
                 Enviar consulta
               </Button>
               <Button
                 type="button"
                 variant="secondary"
+                size="lg"
                 className="flex-1 justify-center"
                 onClick={handleWhatsApp}
                 disabled={!privacy}
               >
-                Enviar por WhatsApp
+                WhatsApp
               </Button>
             </div>
-
-            {/*
-              Integración futura del formulario:
-              - Formspree: https://formspree.io — action en form + fetch
-              - EmailJS: https://www.emailjs.com
-              - API propia: POST /api/contact con validación servidor
-            */}
-            <p className="mt-4 text-xs text-graphite/50">
-              El envío abre tu cliente de correo (mailto). Para envío automático sin salir
-              de la página, conecta Formspree, EmailJS o una API en el handler del formulario.
-            </p>
           </form>
         </div>
 
-        <div className="mt-10 overflow-hidden rounded-3xl border border-graphite/5 shadow-soft">
+        <div className="mt-8 overflow-hidden rounded-5xl shadow-soft-lg">
           <iframe
             title="Mapa de ubicación de Farmacia Helena Soldevila en Granada"
             src={PHARMACY.googleMapsEmbedUrl}
-            className="h-72 w-full border-0 md:h-96"
+            className="h-80 w-full border-0 md:h-[28rem]"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             allowFullScreen
