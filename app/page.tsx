@@ -7,6 +7,8 @@ import { Services } from "@/components/Services";
 import { Gallery } from "@/components/Gallery";
 import { Contact } from "@/components/Contact";
 import { FAQ } from "@/components/FAQ";
+import { TrustSection } from "@/components/TrustSection";
+import { LocalSeo } from "@/components/LocalSeo";
 // import { Guardias } from "@/components/Guardias"; // Activar cuando tengas el calendario de guardias
 
 export default function HomePage() {
@@ -20,7 +22,9 @@ export default function HomePage() {
       <About />
       <Services />
       <Gallery />
+      <TrustSection />
       <Contact />
+      <LocalSeo />
       <FAQ />
     </>
   );

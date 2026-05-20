@@ -23,7 +23,8 @@ Edita **`lib/constants.ts`**:
 | `PHARMACY.phoneLandline` / `phoneLandlineTel` | Fijo farmacia (958 81 31 03) |
 | `PHARMACY.whatsapp` | WhatsApp = móvil (`+34613513922`) |
 | `PHARMACY.portraitImage` | Foto de Helena (`public/images/helena.webp`) |
-| `PHARMACY.googleReviewsUrl` | Enlace a reseñas de Google Business |
+| `PHARMACY.googleReviewsUrl` | Ver ficha en Google Maps |
+| `PHARMACY.googleWriteReviewUrl` | Enlace «Escribir reseña» (Place ID de Google Business) |
 | `PHARMACY.whatsappMessages` | Textos predefinidos de WhatsApp |
 
 ## Calendario festivo oficial (Granada)

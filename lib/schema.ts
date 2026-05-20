@@ -7,12 +7,13 @@ export function getPharmacyJsonLd() {
     "@id": `${SITE_URL}/#pharmacy`,
     name: PHARMACY.name,
     description:
-      "Farmacia en Granada con atención farmacéutica profesional, trato humano y asesoramiento personalizado en Ribera del Violón.",
+      "Farmacia en Granada con atención farmacéutica profesional, trato humano y asesoramiento personalizado en Ribera del Violón, cerca de Camino de Ronda.",
     url: SITE_URL,
     telephone: [PHARMACY.phoneMobileTel, PHARMACY.phoneLandlineTel],
     email: PHARMACY.email,
     image: `${SITE_URL}${GALLERY_IMAGES[0].src}`,
     logo: `${SITE_URL}/icon.svg`,
+    hasMap: PHARMACY.googleMapsUrl,
     address: {
       "@type": "PostalAddress",
       streetAddress: PHARMACY.address.street,
@@ -46,11 +47,33 @@ export function getPharmacyJsonLd() {
         closes: "13:30",
       },
     ],
-    sameAs: [PHARMACY.instagram],
-    areaServed: {
-      "@type": "City",
-      name: "Granada",
-    },
+    sameAs: [PHARMACY.instagram, PHARMACY.googleReviewsUrl],
+    areaServed: [
+      { "@type": "City", name: "Granada" },
+      { "@type": "Place", name: "Ribera del Violón" },
+      { "@type": "Place", name: "Camino de Ronda, Granada" },
+    ],
     priceRange: "$$",
+  };
+}
+
+export function getBreadcrumbJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Inicio",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: PHARMACY.name,
+        item: `${SITE_URL}/#contenido-principal`,
+      },
+    ],
   };
 }

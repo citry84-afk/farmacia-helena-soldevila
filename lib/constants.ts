@@ -58,9 +58,15 @@ export const PHARMACY = {
   },
   prescriptions:
     "Gestionamos recetas electrónicas y te ayudamos con el seguimiento de tu medicación habitual.",
-  /** Sustituye por el enlace directo de reseñas de tu ficha de Google Business */
+  /** Ver ficha / reseñas en Google Maps */
   googleReviewsUrl:
     "https://www.google.com/maps/search/?api=1&query=Farmacia+Helena+Soldevila+Calle+Ribera+del+Violon+6+Granada",
+  /**
+   * Enlace «Escribir reseña» de Google Business (Place ID).
+   * Ejemplo: https://search.google.com/local/writereview?placeid=ChIJ...
+   * Déjalo vacío hasta tenerlo; no se muestra el botón extra.
+   */
+  googleWriteReviewUrl: "" as string,
   whatsappMessages: {
     general: "Hola, me gustaría información sobre Farmacia Helena Soldevila.",
     product:
@@ -102,7 +108,9 @@ export const SEO = {
 export const NAV_LINKS = [
   { href: "#ubicacion", label: "Ubicación" },
   { href: "#horario", label: "Horario" },
+  { href: "#servicios", label: "Servicios" },
   { href: "#sobre-nosotros", label: "Sobre nosotros" },
+  { href: "#festivos-granada", label: "Festivos" },
   { href: "#contacto", label: "Contacto" },
 ] as const;
 
@@ -188,6 +196,11 @@ export const FAQ_ITEMS = [
     question: "¿Sois farmacia cerca de Camino de Ronda?",
     answer:
       "Sí, estamos en Ribera del Violón, una zona muy accesible desde Camino de Ronda y el sur de Granada.",
+  },
+  {
+    question: "¿Dónde puedo ver opiniones o dejar una reseña?",
+    answer:
+      "Puedes consultarnos en Google Maps desde la sección de confianza de esta web o seguirnos en Instagram. Si tienes una experiencia positiva, tu reseña en Google ayuda a otros vecinos.",
   },
 ] as const;
 

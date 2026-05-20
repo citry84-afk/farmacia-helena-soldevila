@@ -5,7 +5,8 @@ import { Header } from "@/components/Header";
 import { MobileActionBar } from "@/components/MobileActionBar";
 import { Footer } from "@/components/Footer";
 import { PHARMACY, SEO, SITE_URL } from "@/lib/constants";
-import { getPharmacyJsonLd } from "@/lib/schema";
+import { SkipLink } from "@/components/SkipLink";
+import { getBreadcrumbJsonLd, getPharmacyJsonLd } from "@/lib/schema";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -61,17 +62,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = getPharmacyJsonLd();
+  const pharmacyLd = getPharmacyJsonLd();
+  const breadcrumbLd = getBreadcrumbJsonLd();
 
   return (
     <html lang="es" className={inter.variable}>
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(pharmacyLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
         />
       </head>
       <body className="font-sans pb-20 md:pb-0">
+        <SkipLink />
         <Header />
         <main id="contenido-principal">{children}</main>
         <Footer />
