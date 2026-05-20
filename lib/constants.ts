@@ -25,10 +25,10 @@ export const PHARMACY = {
   phoneLandlineTel: "+34958813103",
   /** Número WhatsApp (móvil) */
   whatsapp: "+34613513922",
-  /** Foto de Helena — sustituye por /public/images/helena.webp cuando la tengas */
   portraitImage: "/images/helena.webp",
   portraitAlt:
-    "Helena Soldevila, farmacéutica titular de Farmacia Helena Soldevila en Granada",
+    "Retrato de Helena Soldevila, farmacéutica titular de Farmacia Helena Soldevila en Granada",
+  portraitCaption: "Cuidamos de ti, cada día",
   email: "fciagranadarg@gmail.com",
   instagram: "https://www.instagram.com/farmacia.helenasoldevila/",
   /** Enlace a Google Maps — sustituye por tu URL de Google Business si la tienes */
