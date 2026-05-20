@@ -52,13 +52,32 @@ Para envío automático sin salir de la página, integra en `components/Contact.
 - [EmailJS](https://www.emailjs.com)
 - API propia (`/api/contact`)
 
-## Despliegue (Vercel recomendado)
+## Despliegue (Vercel — ya configurado)
 
-1. Sube el repositorio a GitHub.
-2. Importa el proyecto en [Vercel](https://vercel.com).
-3. En Namecheap, apunta el dominio a Vercel (registros A/CNAME según indique Vercel).
-4. Añade dominio `www.farmaciasoldevila.com` en Vercel → Settings → Domains.
-5. Conecta [Google Search Console](https://search.google.com/search-console) y envía el sitemap: `https://www.farmaciasoldevila.com/sitemap.xml`.
+| Recurso | URL |
+|---------|-----|
+| **Producción Vercel** | https://farmacia-helena-soldevila.vercel.app |
+| **Repositorio GitHub** | https://github.com/citry84-afk/farmacia-helena-soldevila |
+| **Panel Vercel** | https://vercel.com/citry84-5661s-projects/farmacia-helena-soldevila |
+
+Cada push a `main` en GitHub despliega automáticamente en Vercel.
+
+### Conectar dominio en Namecheap
+
+En **Namecheap → Domain List → farmaciasoldevila.com → Advanced DNS**, añade:
+
+| Tipo | Host | Valor |
+|------|------|--------|
+| **A** | `@` | `76.76.21.21` |
+| **CNAME** | `www` | `cname.vercel-dns.com` |
+
+(Opción alternativa: cambiar nameservers del dominio a los de Vercel: `ns1.vercel-dns.com` y `ns2.vercel-dns.com`.)
+
+La propagación DNS puede tardar hasta 48 h. Cuando esté activo, la web responderá en `https://www.farmaciasoldevila.com`.
+
+### Search Console
+
+Conecta [Google Search Console](https://search.google.com/search-console) y envía el sitemap: `https://www.farmaciasoldevila.com/sitemap.xml`.
 
 ## SEO local — checklist
 
