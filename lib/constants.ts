@@ -16,9 +16,13 @@ export const PHARMACY = {
     country: "ES",
     full: "C. Ribera del Violón, 6, 18006 Granada",
   },
-  phone: "613 51 39 22",
-  phoneTel: "+34613513922",
-  /** Número WhatsApp en formato internacional (editable) */
+  /** Móvil — llamadas y WhatsApp */
+  phoneMobile: "613 51 39 22",
+  phoneMobileTel: "+34613513922",
+  /** Fijo de la farmacia */
+  phoneLandline: "958 81 31 03",
+  phoneLandlineTel: "+34958813103",
+  /** Número WhatsApp (móvil) */
   whatsapp: "+34613513922",
   /** Foto de Helena — sustituye por /public/images/helena.webp cuando la tengas */
   portraitImage: "/images/helena.webp",
@@ -32,7 +36,6 @@ export const PHARMACY = {
   /** URL del iframe de mapa (embed de Google Maps → Compartir → Insertar mapa) */
   googleMapsEmbedUrl:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3178!2d-3.5986!3d37.1689!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zR3JhbmFkYQ!5e0!3m2!1ses!2ses!4v1&q=Calle+Ribera+del+Viol%C3%B3n+6%2C+18006+Granada",
-  /** Coordenadas aproximadas — confirma en Google Maps */
   geo: {
     latitude: 37.1689,
     longitude: -3.5986,
@@ -117,6 +120,10 @@ export const FAQ_ITEMS = [
   {
     question: "¿Abrís los sábados por la tarde?",
     answer: `Los sábados abrimos de 09:30 a 13:30. ${PHARMACY.schedule.note}`,
+  },
+  {
+    question: "¿Qué teléfonos puedo usar para contactar?",
+    answer: `Móvil ${PHARMACY.phoneMobile} (WhatsApp y llamadas) y fijo ${PHARMACY.phoneLandline}.`,
   },
   {
     question: "¿Puedo consultar si tenéis un producto antes de ir?",

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Logo } from "./Logo";
 import { NAV_LINKS, PHARMACY } from "@/lib/constants";
-import { buildTelUrl } from "@/lib/utils";
+import { PhoneNumbers } from "./PhoneNumbers";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -47,12 +47,20 @@ export function Header() {
               {link.label}
             </a>
           ))}
-          <a
-            href={buildTelUrl()}
-            className="ml-2 rounded-full bg-brand px-5 py-2 text-sm font-medium text-white transition hover:bg-brand-dark"
-          >
-            {PHARMACY.phone}
-          </a>
+          <div className="ml-2 hidden items-center gap-2 lg:flex">
+            <a
+              href={`tel:${PHARMACY.phoneMobileTel}`}
+              className="rounded-full bg-brand px-4 py-2 text-sm font-medium text-white transition hover:bg-brand-dark"
+            >
+              {PHARMACY.phoneMobile}
+            </a>
+            <a
+              href={`tel:${PHARMACY.phoneLandlineTel}`}
+              className="rounded-full border border-graphite/15 px-4 py-2 text-sm font-medium text-graphite transition hover:border-brand/30"
+            >
+              {PHARMACY.phoneLandline}
+            </a>
+          </div>
         </nav>
       </div>
     </header>

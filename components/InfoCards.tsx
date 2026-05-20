@@ -1,5 +1,6 @@
 import { PHARMACY } from "@/lib/constants";
-import { buildTelUrl, buildWhatsAppUrl } from "@/lib/utils";
+import { buildWhatsAppUrl } from "@/lib/utils";
+import { PhoneNumbers } from "./PhoneNumbers";
 import { ScrollReveal } from "./ScrollReveal";
 import { SectionHeading } from "./SectionHeading";
 
@@ -71,14 +72,11 @@ export function InfoCards() {
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
                     Contacto
                   </p>
-                  <a
-                    href={buildTelUrl()}
-                    className="mt-4 block text-3xl font-semibold tracking-tight text-graphite transition hover:text-brand"
-                  >
-                    {PHARMACY.phone}
-                  </a>
-                  <p className="mt-2 text-graphite/65">
-                    Llama o escribe por WhatsApp antes de venir.
+                  <div className="mt-4">
+                    <PhoneNumbers size="lg" />
+                  </div>
+                  <p className="mt-4 text-graphite/65">
+                    WhatsApp al móvil. También puedes llamar al fijo de la farmacia.
                   </p>
                 </div>
                 <a

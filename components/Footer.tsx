@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PHARMACY } from "@/lib/constants";
-import { buildTelUrl, buildWhatsAppUrl } from "@/lib/utils";
+import { buildWhatsAppUrl } from "@/lib/utils";
+import { PhoneNumbers } from "./PhoneNumbers";
 import { Logo } from "./Logo";
 
 export function Footer() {
@@ -20,14 +21,9 @@ export function Footer() {
             <p className="mt-5 text-lg leading-relaxed text-graphite/70">
               {PHARMACY.address.full}
             </p>
-            <p className="mt-3">
-              <a
-                href={buildTelUrl()}
-                className="text-xl font-semibold text-brand hover:underline"
-              >
-                {PHARMACY.phone}
-              </a>
-            </p>
+            <div className="mt-4">
+              <PhoneNumbers />
+            </div>
             <a
               href={buildWhatsAppUrl()}
               target="_blank"

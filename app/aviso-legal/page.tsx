@@ -20,7 +20,7 @@ export default function AvisoLegalPage() {
           En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la
           Sociedad de la Información y Comercio Electrónico (LSSI-CE), se informa que el titular de
           este sitio web es {PHARMACY.name}, con domicilio en {PHARMACY.address.full}, y teléfono de
-          contacto {PHARMACY.phone}.
+          contacto {PHARMACY.phoneMobile} / {PHARMACY.phoneLandline}.
         </p>
       </section>
       <section>

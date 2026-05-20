@@ -9,7 +9,7 @@ export function getPharmacyJsonLd() {
     description:
       "Farmacia en Granada con atención farmacéutica profesional, trato humano y asesoramiento personalizado en Ribera del Violón.",
     url: SITE_URL,
-    telephone: PHARMACY.phoneTel,
+    telephone: [PHARMACY.phoneMobileTel, PHARMACY.phoneLandlineTel],
     email: PHARMACY.email,
     image: `${SITE_URL}${GALLERY_IMAGES[0].src}`,
     logo: `${SITE_URL}/icon.svg`,

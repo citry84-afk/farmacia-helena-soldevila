@@ -19,7 +19,7 @@ export default function PoliticaPrivacidadPage() {
         <h2 className="text-xl font-semibold text-graphite">1. Responsable del tratamiento</h2>
         <p>
           Responsable: {PHARMACY.name}. Dirección: {PHARMACY.address.full}. Contacto:{" "}
-          {PHARMACY.email} / {PHARMACY.phone}.
+          {PHARMACY.email} / {PHARMACY.phoneMobile} / {PHARMACY.phoneLandline}.
         </p>
       </section>
       <section>

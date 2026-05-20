@@ -4,6 +4,7 @@ import { useState } from "react";
 import { PHARMACY } from "@/lib/constants";
 import { buildTelUrl, buildWhatsAppUrl } from "@/lib/utils";
 import { Button } from "./ui/Button";
+import { PhoneNumbers } from "./PhoneNumbers";
 import { SectionHeading } from "./SectionHeading";
 
 export function Contact() {
@@ -61,16 +62,9 @@ export function Contact() {
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-xs font-semibold uppercase tracking-[0.18em] text-brand">
-                    Teléfono y WhatsApp
-                  </dt>
+                  <dt className="sr-only">Teléfonos</dt>
                   <dd className="mt-2">
-                    <a
-                      href={buildTelUrl()}
-                      className="text-3xl font-semibold tracking-tight text-graphite hover:text-brand"
-                    >
-                      {PHARMACY.phone}
-                    </a>
+                    <PhoneNumbers size="lg" />
                   </dd>
                 </div>
                 <div>
@@ -82,9 +76,17 @@ export function Contact() {
                 </div>
               </dl>
             </div>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <Button href={buildTelUrl()} size="lg" className="flex-1 justify-center">
-                Llamar
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Button href={buildTelUrl("mobile")} size="lg" className="flex-1 justify-center">
+                Llamar móvil
+              </Button>
+              <Button
+                href={buildTelUrl("landline")}
+                variant="secondary"
+                size="lg"
+                className="flex-1 justify-center"
+              >
+                Llamar fijo
               </Button>
               <Button
                 href={buildWhatsAppUrl()}
