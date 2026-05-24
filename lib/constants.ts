@@ -28,7 +28,8 @@ export const PHARMACY = {
   portraitImage: "/images/helena.webp",
   portraitAlt:
     "Retrato de Helena Soldevila, farmacéutica titular de Farmacia Helena Soldevila en Granada",
-  portraitCaption: "Cuidamos de ti, cada día",
+  /** Lema principal — hero y pie de foto en Sobre nosotros */
+  tagline: "Cuidamos de ti, cada día",
   email: "fciagranadarg@gmail.com",
   instagram: "https://www.instagram.com/farmacia.helenasoldevila/",
   /** Enlace a Google Maps — sustituye por tu URL de Google Business si la tienes */

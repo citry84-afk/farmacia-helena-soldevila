@@ -34,11 +34,7 @@ export function About() {
                 <p className="text-sm text-graphite/65">
                   Farmacéutica titular · desde 2022
                 </p>
-                {PHARMACY.portraitCaption && (
-                  <p className="mt-1 text-sm font-medium text-brand">
-                    {PHARMACY.portraitCaption}
-                  </p>
-                )}
+                <p className="mt-1 text-sm font-medium text-brand">{PHARMACY.tagline}</p>
               </figcaption>
             </figure>
           </ScrollReveal>
@@ -46,7 +42,7 @@ export function About() {
           <ScrollReveal delay={100}>
             <SectionHeading
               eyebrow="Sobre nosotros"
-              title="Cuidamos de ti con cercanía y profesionalidad."
+              title="Con cercanía y profesionalidad."
             />
             <div className="mt-8 space-y-6 text-lg leading-relaxed text-graphite/75 md:text-xl md:leading-relaxed">
               <p>

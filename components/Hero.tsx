@@ -11,24 +11,33 @@ export function Hero() {
       aria-labelledby="hero-heading"
     >
       <div className="container-main flex flex-col items-center pb-8 text-center md:pb-12">
-        <div className="animate-fade-in mb-6">
-          <OpenStatus size="lg" />
-        </div>
-        <p className="animate-fade-in mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-brand">
-          Granada · Ribera del Violón
-        </p>
         <h1
           id="hero-heading"
-          className="animate-fade-in-up max-w-4xl text-display-sm font-semibold tracking-tight text-graphite sm:text-display md:text-display-lg"
+          className="animate-fade-in-up max-w-4xl"
+          style={{ animationDelay: "0.05s" }}
         >
-          Farmacia Helena Soldevila
+          <span className="block text-display-sm font-semibold tracking-tight text-graphite sm:text-display md:text-display-lg">
+            {PHARMACY.tagline}
+          </span>
+          <span className="mt-5 block text-2xl font-semibold tracking-tight text-graphite/90 sm:text-3xl md:mt-6">
+            {PHARMACY.name}
+          </span>
+          <span className="mt-2 block text-xl font-medium text-brand md:text-2xl">
+            en {PHARMACY.address.city}
+          </span>
         </h1>
-        <p className="animate-fade-in-up mt-3 text-xl font-medium text-brand md:text-2xl">
-          en Granada
+
+        <p className="animate-fade-in mt-6 text-xs font-semibold uppercase tracking-[0.22em] text-brand">
+          {PHARMACY.address.city} · Ribera del Violón
         </p>
+
+        <div className="animate-fade-in mt-6">
+          <OpenStatus size="lg" />
+        </div>
+
         <p
           className="animate-fade-in-up mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-graphite/70 md:mt-10 md:text-xl md:leading-relaxed"
-          style={{ animationDelay: "0.1s" }}
+          style={{ animationDelay: "0.15s" }}
         >
           Tu farmacia cercana en {PHARMACY.address.street}. Atención farmacéutica
           profesional, trato humano y asesoramiento personalizado.
