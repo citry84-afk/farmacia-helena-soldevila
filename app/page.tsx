@@ -2,7 +2,6 @@ import { Hero } from "@/components/Hero";
 import { InfoCards } from "@/components/InfoCards";
 import { QuickActions } from "@/components/QuickActions";
 import { HolidayCalendar } from "@/components/HolidayCalendar";
-import { About } from "@/components/About";
 import { Services } from "@/components/Services";
 import { Gallery } from "@/components/Gallery";
 import { Contact } from "@/components/Contact";
@@ -19,7 +18,6 @@ export default function HomePage() {
       <QuickActions />
       <HolidayCalendar />
       {/* <Guardias /> — calendario de guardias: ver data/guardias/README.md */}
-      <About />
       <Services />
       <Gallery />
       <TrustSection />

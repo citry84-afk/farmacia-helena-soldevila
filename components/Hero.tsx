@@ -1,50 +1,46 @@
 import Image from "next/image";
 import { PHARMACY } from "@/lib/constants";
 import { buildTelUrl, buildWhatsAppUrl } from "@/lib/utils";
+import { AboutIntro } from "./About";
 import { Button } from "./ui/Button";
 import { OpenStatus } from "./OpenStatus";
 
 export function Hero() {
   return (
     <section
-      className="hero-glow relative min-h-[92vh] overflow-hidden pt-24 md:min-h-screen md:pt-28"
+      id="sobre-nosotros"
+      className="hero-glow relative overflow-hidden scroll-mt-32 pt-24 md:pt-28"
       aria-labelledby="hero-heading"
     >
-      <div className="container-main flex flex-col items-center pb-8 text-center md:pb-12">
-        <h1
-          id="hero-heading"
-          className="animate-fade-in-up max-w-4xl"
-          style={{ animationDelay: "0.05s" }}
-        >
-          <span className="block text-display-sm font-semibold tracking-tight text-graphite sm:text-display md:text-display-lg">
+      <div className="container-main pb-10 md:pb-14">
+        <header className="mx-auto max-w-4xl text-center">
+          <h1
+            id="hero-heading"
+            className="animate-fade-in-up text-display-sm font-semibold tracking-tight text-graphite sm:text-display md:text-display-lg"
+          >
             {PHARMACY.tagline}
-          </span>
-          <span className="mt-5 block text-2xl font-semibold tracking-tight text-graphite/90 sm:text-3xl md:mt-6">
+          </h1>
+          <p className="animate-fade-in-up mt-5 text-2xl font-semibold tracking-tight text-graphite/90 sm:text-3xl">
             {PHARMACY.name}
-          </span>
-          <span className="mt-2 block text-xl font-medium text-brand md:text-2xl">
+          </p>
+          <p className="animate-fade-in-up mt-2 text-xl font-medium text-brand md:text-2xl">
             en {PHARMACY.address.city}
-          </span>
-        </h1>
+          </p>
+          <p className="animate-fade-in mt-6 text-xs font-semibold uppercase tracking-[0.22em] text-brand">
+            {PHARMACY.address.city} · Ribera del Violón
+          </p>
+          <div className="animate-fade-in mt-6 flex justify-center">
+            <OpenStatus size="lg" />
+          </div>
+        </header>
 
-        <p className="animate-fade-in mt-6 text-xs font-semibold uppercase tracking-[0.22em] text-brand">
-          {PHARMACY.address.city} · Ribera del Violón
-        </p>
-
-        <div className="animate-fade-in mt-6">
-          <OpenStatus size="lg" />
+        <div className="mt-14 md:mt-16 lg:mt-20">
+          <AboutIntro />
         </div>
 
-        <p
-          className="animate-fade-in-up mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-graphite/70 md:mt-10 md:text-xl md:leading-relaxed"
-          style={{ animationDelay: "0.15s" }}
-        >
-          Tu farmacia cercana en {PHARMACY.address.street}. Atención farmacéutica
-          profesional, trato humano y asesoramiento personalizado.
-        </p>
         <div
-          className="animate-fade-in-up mt-10 flex w-full max-w-2xl flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center"
-          style={{ animationDelay: "0.2s" }}
+          className="animate-fade-in-up mt-12 flex w-full flex-col gap-3 sm:mx-auto sm:mt-14 sm:max-w-2xl sm:flex-row sm:flex-wrap sm:justify-center md:mt-16"
+          style={{ animationDelay: "0.15s" }}
         >
           <Button href={buildTelUrl("mobile")} size="lg">
             Llamar móvil
@@ -60,7 +56,7 @@ export function Hero() {
             Cómo llegar
           </Button>
         </div>
-        <p className="animate-fade-in mt-6 text-sm text-graphite/50">
+        <p className="animate-fade-in mt-6 text-center text-sm text-graphite/50">
           También en fijo:{" "}
           <a href={buildTelUrl("landline")} className="font-medium text-brand hover:underline">
             {PHARMACY.phoneLandline}
@@ -68,15 +64,15 @@ export function Hero() {
         </p>
       </div>
 
-      <div className="container-main pb-16 md:pb-24">
+      <div className="container-main pb-16 md:pb-20">
         <div className="animate-fade-in relative mx-auto aspect-[16/10] max-w-5xl overflow-hidden rounded-5xl shadow-soft-lg md:aspect-[21/9]">
           <Image
             src="/images/fachada.webp"
             alt="Fachada de Farmacia Helena Soldevila en Granada, C. Ribera del Violón"
             fill
-            priority
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 90vw"
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-graphite/25 via-transparent to-transparent" />
         </div>
