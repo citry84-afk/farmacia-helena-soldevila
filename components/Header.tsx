@@ -40,7 +40,7 @@ export function Header() {
           onClick={closeMenu}
           aria-label={PHARMACY.shortName}
         >
-          <Logo className="h-10 w-auto sm:h-11 md:h-12" priority />
+          <Logo priority />
         </Link>
 
         <nav
