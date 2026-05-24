@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { PHARMACY } from "@/lib/constants";
 import { buildTelUrl, buildWhatsAppUrl } from "@/lib/utils";
 import { AboutIntro } from "./About";
@@ -12,7 +11,7 @@ export function Hero() {
       className="hero-glow relative overflow-hidden scroll-mt-32 pt-24 md:pt-28"
       aria-labelledby="hero-heading"
     >
-      <div className="container-main pb-10 md:pb-14">
+      <div className="container-main pb-16 md:pb-20">
         <header className="mx-auto max-w-4xl text-center">
           <h1
             id="hero-heading"
@@ -62,20 +61,6 @@ export function Hero() {
             {PHARMACY.phoneLandline}
           </a>
         </p>
-      </div>
-
-      <div className="container-main pb-16 md:pb-20">
-        <div className="animate-fade-in relative mx-auto aspect-[16/10] max-w-5xl overflow-hidden rounded-5xl shadow-soft-lg md:aspect-[21/9]">
-          <Image
-            src="/images/fachada.webp"
-            alt="Fachada de Farmacia Helena Soldevila en Granada, C. Ribera del Violón"
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 90vw"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-graphite/25 via-transparent to-transparent" />
-        </div>
       </div>
     </section>
   );
