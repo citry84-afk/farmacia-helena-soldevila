@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { LegalLayout } from "@/components/LegalLayout";
-import { PHARMACY } from "@/lib/constants";
+import { PHARMACY, SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Aviso legal",
   description: `Aviso legal de ${PHARMACY.name}.`,
-  robots: { index: true, follow: true },
+  alternates: { canonical: `${SITE_URL}/aviso-legal` },
+  robots: { index: false, follow: true },
 };
 
 export default function AvisoLegalPage() {

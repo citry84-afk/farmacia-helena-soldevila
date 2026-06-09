@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
@@ -8,7 +8,12 @@ import { PHARMACY, SEO, SITE_URL } from "@/lib/constants";
 import { CookieBanner } from "@/components/CookieBanner";
 import { DesktopQuickActions } from "@/components/DesktopQuickActions";
 import { SkipLink } from "@/components/SkipLink";
-import { getBreadcrumbJsonLd, getFaqJsonLd, getPharmacyJsonLd } from "@/lib/schema";
+import {
+  getBreadcrumbJsonLd,
+  getFaqJsonLd,
+  getPharmacyJsonLd,
+  getWebsiteJsonLd,
+} from "@/lib/schema";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,7 +30,9 @@ export const metadata: Metadata = {
   description: SEO.description,
   keywords: [...SEO.keywords],
   alternates: {
-    canonical: "/",
+    languages: {
+      "es-ES": "/",
+    },
   },
   openGraph: {
     type: "website",
@@ -52,12 +59,26 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  category: "health",
+  verification: {
+    google: "H_0Ua3qjt49-JXHeSSNQg3CsIwgi550pc14PadwXQVA",
   },
   icons: {
     icon: [{ url: "/logo.webp", type: "image/webp" }],
     apple: "/logo.webp",
   },
   manifest: "/manifest.json",
+};
+
+export const viewport: Viewport = {
   themeColor: "#2F7D5B",
 };
 
@@ -66,6 +87,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const websiteLd = getWebsiteJsonLd();
   const pharmacyLd = getPharmacyJsonLd();
   const breadcrumbLd = getBreadcrumbJsonLd();
   const faqLd = getFaqJsonLd();
@@ -73,6 +95,17 @@ export default function RootLayout({
   return (
     <html lang="es" className={inter.variable}>
       <head>
+        <meta name="geo.region" content="ES-GR" />
+        <meta name="geo.placename" content={PHARMACY.address.city} />
+        <meta
+          name="geo.position"
+          content={`${PHARMACY.geo.latitude};${PHARMACY.geo.longitude}`}
+        />
+        <meta name="ICBM" content={`${PHARMACY.geo.latitude}, ${PHARMACY.geo.longitude}`} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(pharmacyLd) }}

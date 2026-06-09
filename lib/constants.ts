@@ -95,9 +95,9 @@ export const GUARDIAS = {
 } as const;
 
 export const SEO = {
-  title: "Farmacia Helena Soldevila en Granada | Ribera del Violón",
+  title: "Farmacia en Granada (Ribera del Violón) | Helena Soldevila",
   description:
-    "Tu farmacia cercana en C. Ribera del Violón, 6, Granada. Horario, teléfono, WhatsApp y cómo llegar. Atención farmacéutica profesional y trato humano.",
+    "Farmacia en Granada, Ribera del Violón (18006): horario actualizado, teléfono, WhatsApp y cómo llegar. Atención farmacéutica cercana y profesional.",
   keywords: [
     "farmacia en Granada",
     "farmacia Ribera del Violón",

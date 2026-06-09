@@ -1,5 +1,16 @@
 import { FAQ_ITEMS, GALLERY_IMAGES, PHARMACY, SITE_URL } from "./constants";
 
+export function getWebsiteJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    url: SITE_URL,
+    name: PHARMACY.name,
+    inLanguage: "es-ES",
+  };
+}
+
 export function getPharmacyJsonLd() {
   return {
     "@context": "https://schema.org",

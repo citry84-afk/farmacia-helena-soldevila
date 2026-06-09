@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { LegalLayout } from "@/components/LegalLayout";
-import { PHARMACY } from "@/lib/constants";
+import { PHARMACY, SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Política de privacidad",
   description: `Política de privacidad de ${PHARMACY.name}.`,
-  robots: { index: true, follow: true },
+  alternates: { canonical: `${SITE_URL}/politica-privacidad` },
+  robots: { index: false, follow: true },
 };
 
 export default function PoliticaPrivacidadPage() {
